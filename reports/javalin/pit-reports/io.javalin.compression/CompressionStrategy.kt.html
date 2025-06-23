@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CompressionStrategy.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.compression</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.aayushatharva.brotli4j.Brotli4jLoader</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.CoreDependency</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.DependencyUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.JavalinLogger</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.Util</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * This class is a settings container for Javalin&#39;s content compression.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * It is used by the CompressedOutputStream and JettyPrecompressingResourceHandler to determine the encoding and parameters that should be used when compressing a response.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @see io.javalin.compression.CompressedOutputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @see io.javalin.jetty.JettyPrecompressingResourceHandler</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param brotli instance of Brotli config, default = null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param gzip   instance of Gzip config, default = null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class CompressionStrategy(brotli: Brotli? = null, gzip: Gzip? = null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    companion object {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @JvmField</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val NONE = CompressionStrategy()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @JvmField</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val GZIP = CompressionStrategy(null, Gzip())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Check if the dependency is present</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_30'>2</a>
+<span>
+
+1. brotli4jPresent : replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotli4jPresent &rarr; SURVIVED<br/>
+
+2. brotli4jPresent : replaced boolean return with false for io/javalin/compression/CompressionStrategy$Companion::brotli4jPresent &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        fun brotli4jPresent() = Util.classExists(CoreDependency.BROTLI4J.testClass)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Check if the native libraries are available</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fun brotli4jAvailable() = try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Brotli4jLoader.isAvailable()</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (t: Throwable) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            false</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_38'/>
+38
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_38'>2</a>
+<span>
+
+1. brotli4jAvailable : replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotli4jAvailable &rarr; SURVIVED<br/>
+
+2. brotli4jAvailable : replaced boolean return with false for io/javalin/compression/CompressionStrategy$Companion::brotli4jAvailable &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        /** @returns true if brotli is can be used */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_41'>3</a>
+<span>
+
+1. brotliImplAvailable : negated conditional &rarr; SURVIVED<br/>
+
+2. brotliImplAvailable : replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotliImplAvailable &rarr; SURVIVED<br/>
+
+3. brotliImplAvailable : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        fun brotliImplAvailable() =  brotli4jPresent() &#38;&#38; brotli4jAvailable()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_45'>1</a>
+<span>
+
+1. getCompressors : replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getCompressors &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    val compressors: List&#60;Compressor&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    init {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val comp: MutableList&#60;Compressor&#62; = mutableListOf()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //Enabling brotli requires special handling since brotli is platform dependent</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_50'>2</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (brotli != null) tryLoadBrotli(brotli)?.let { comp.add(it) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_51'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (gzip != null) comp.add(GzipCompressor(gzip.level))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        compressors = comp.toList()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** 1500 is the size of a packet, compressing responses smaller than this serves no purpose */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_56'>1</a>
+<span>
+
+1. getDefaultMinSizeForCompression : replaced int return with 0 for io/javalin/compression/CompressionStrategy::getDefaultMinSizeForCompression &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    var defaultMinSizeForCompression = 1500</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** these mime types will always be allowed */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_59'>1</a>
+<span>
+
+1. getAllowedMimeTypes : replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getAllowedMimeTypes &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    var allowedMimeTypes = listOf(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;image/svg+xml&#34; // we need to allow svg explicitly, because images in general are excluded</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    )</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** these mime types will be processed using NONE compression strategy */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_64'>1</a>
+<span>
+
+1. getExcludedMimeTypes : replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getExcludedMimeTypes &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    var excludedMimeTypes = listOf(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;image/&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;audio/&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;video/&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/compress&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/zip&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/gzip&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/bzip2&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/brotli&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/x-xz&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;application/x-rar-compressed&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    )</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * When enabling Brotli, we try loading the jvm-brotli native libraries first.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If this fails, we keep Brotli disabled and warn the user.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun tryLoadBrotli(brotli: Brotli): Compressor? {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_82'>1</a>
+<span>
+
+1. tryLoadBrotli : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!brotli4jPresent()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw IllegalStateException(DependencyUtil.missingDependencyMessage(CoreDependency.BROTLI4J))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_86'>2</a>
+<span>
+
+1. tryLoadBrotli : replaced return value with null for io/javalin/compression/CompressionStrategy::tryLoadBrotli &rarr; KILLED<br/>
+
+2. tryLoadBrotli : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            Brotli4jLoader.isAvailable() -&#62; return Brotli4jCompressor(brotli.level)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            else -&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_88'>1</a>
+<span>
+
+1. tryLoadBrotli : removed call to io/javalin/util/JavalinLogger::warn$default &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                JavalinLogger.warn(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;&#34;&#34;|</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |Failed to enable Brotli compression, because the brotli4j native library couldn&#39;t be loaded.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |brotli4j is currently only supported on Windows, Linux and Mac OSX.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |If you are running Javalin on a supported system, but are still getting this error,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |try re-importing your Maven and/or Gradle dependencies. If that doesn&#39;t resolve it,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |please create an issue at https://github.com/javalin/javalin/</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |---------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                       |If you still want compression, please ensure GZIP is enabled!</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                       |---------------------------------------------------------------&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                )</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52f95c26_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_106'>1</a>
+<span>
+
+1. forType : replaced return value with null for io/javalin/compression/CompressionStrategyKt::forType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>fun List&#60;Compressor&#62;.forType(type: String) = this.firstOrNull { it.encoding().equals(type, ignoreCase = true) }</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>brotli4jPresent<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't gzip when gzip is disabled()]</span></span> replaced boolean return with false for io/javalin/compression/CompressionStrategy$Companion::brotli4jPresent &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>brotli4jPresent<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotli4jPresent &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jPresent,-methodDesc=()Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jPresent,-methodDesc=()Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jPresent,-methodDesc=()Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't gzip when gzip is disabled()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:disableCompression disables compression even if size is big()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg compression can be disabled()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:response encoding matches header()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when Accept-Encoding header is set and size is big enough()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when Accept-Encoding is not set()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression strategy is used()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:only creates one compressed version even if query params are present()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:precompressed files are served with correct content-type()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:first available encoding is used()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_38'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>brotli4jAvailable<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotli4jAvailable &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jAvailable,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jAvailable,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotli4jAvailable,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>brotli4jAvailable<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()]</span></span> replaced boolean return with false for io/javalin/compression/CompressionStrategy$Companion::brotli4jAvailable &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_41'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>brotliImplAvailable<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>brotliImplAvailable<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/compression/CompressionStrategy$Companion::brotliImplAvailable &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>brotliImplAvailable<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.CompressionStrategy$Companion,-method=brotliImplAvailable,-methodDesc=()Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCompressors<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getCompressors &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDefaultMinSizeForCompression<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:default logging works()]</span></span> replaced int return with 0 for io/javalin/compression/CompressionStrategy::getDefaultMinSizeForCompression &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllowedMimeTypes<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:default logging works()]</span></span> replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getAllowedMimeTypes &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExcludedMimeTypes<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:default logging works()]</span></span> replaced return value with Collections.emptyList for io/javalin/compression/CompressionStrategy::getExcludedMimeTypes &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tryLoadBrotli<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't gzip when gzip is disabled()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tryLoadBrotli<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</span></span> replaced return value with null for io/javalin/compression/CompressionStrategy::tryLoadBrotli &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>tryLoadBrotli<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_88'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tryLoadBrotli<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/util/JavalinLogger::warn$default &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>forType<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> replaced return value with null for io/javalin/compression/CompressionStrategyKt::forType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52f95c26_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52f95c26_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>forType<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>forType<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()] (1 ms)</li><li>io.javalin.http.ContentTypeTest.[engine:junit-jupiter]/[class:io.javalin.http.ContentTypeTest]/[method:file should be served even if content type isn't set()] (16 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing javalin ignores static directory slashes()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:can set headers after precompressing handler is done()] (27 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:response encoding matches header()] (27 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when static files were pre-compressed()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression strategy is used()] (40 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()] (34 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:only creates one compressed version even if query params are present()] (44 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for ResourceHandler - precompress()] (36 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:precompressed files are served with correct content-type()] (43 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:first available encoding is used()] (49 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()] (78 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't gzip when gzip is disabled()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:disableCompression disables compression even if size is big()] (21 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()] (24 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg compression can be disabled()] (24 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()] (35 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when Accept-Encoding header is set and size is big enough()] (29 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when Accept-Encoding is not set()] (34 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()] (55 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()] (62 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()] (71 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()] (79 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()] (70 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()] (90 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for dynamic responses of different sizes()] (102 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()] (164 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()] (418 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when compression is disabled()] (19 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't brotli when brotli is disabled()] (21 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when brotli disabled, but both requested()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for large static files()] (113 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()] (1096 ms)</li><li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding an event listener to the ServletContextHandler works()] (15 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:setting port works()] (14 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:setting host works()] (15 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()] (14 ms)</li><li>io.javalin.TestCustomRequestLifecycle.[engine:junit-jupiter]/[class:io.javalin.TestCustomRequestLifecycle]/[method:can add custom lifecycle stage()] (15 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:autogenerated etags are not added to PUT request()] (13 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParamMap returns empty map if no path params present()] (12 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:servlet-context is not null()] (13 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:manual etags work for PUT request()] (13 ms)</li><li>io.javalin.TestCustomRequestLifecycle.[engine:junit-jupiter]/[class:io.javalin.TestCustomRequestLifecycle]/[method:can terminate request handling()] (17 ms)</li><li>io.javalin.TestCustomRequestLifecycle.[engine:junit-jupiter]/[class:io.javalin.TestCustomRequestLifecycle]/[method:can remove lifecycle stage()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basicAuthCredentials returns null when header not properly configured()] (13 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:scheme works()] (12 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:userAgent works()] (13 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:resultString is available in request logger and can be read multiple times()] (12 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:basic hello world works()] (16 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:default app does not set etags for GET()] (15 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:etags are not autogenerated for input stream response()] (17 ms)</li><li>io.javalin.TestServerHeader.[engine:junit-jupiter]/[class:io.javalin.TestServerHeader]/[method:server header is not set by default()] (16 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:setting a default content-type works()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:host works()] (14 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:wildcard end works()] (14 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:toJsonStream treats Strings as already being json()] (16 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after-handler sets header after endpoint-handler()] (14 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper treats strings as already being json()] (14 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:wildcard middle works()] (13 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:custom ContextHandlerCollection works()] (19 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basicAuthCredentials extracts username and password with colon()] (15 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:ip works()] (16 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:literal colon in path segment works()] (18 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:case insensitive routes work with caseInsensitiveRoutes()] (16 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:api builder can be used as custom router()] (13 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Does Not Work Without Customizer()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard middle works()] (16 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basicAuthCredentials extracts username and password when header properly configured()] (15 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns empty list for unknown param()] (14 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:trailing slashes are ignored by default()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonStream()] (15 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:manual etags overwrite autogenerated etags()] (16 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:cookie-map returns all cookies if cookies are set()] (19 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:autogenerated etags are added to GET request()] (14 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as stream works()] (20 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:cookie-map returns empty when no cookies are set()] (20 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the start work with significant trailing slashes()] (17 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:toJson treats Strings as already being json()] (18 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:trailing slashes don't change url params behaviour()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()] (16 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:attributes can be computed()] (16 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard first works()] (19 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting a byte array result works()] (22 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:routing is available in config()] (19 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params with strictContentTypes and without contentType returns nothing()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonStream()] (19 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:toJsonStream treats Strings as already being json()] (21 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParam returns null for unknown param()] (16 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:single cookie returns null when missing()] (21 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:can add filter to stop request before javalin()] (21 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:async context can be used in future supplier()] (15 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:filters run before root handler()] (17 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can update ObjectMapper of JavalinJackson()] (16 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as bytes works()] (21 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the start are okay when multipleSlashes is enabled()] (18 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:body can be read multiple times()] (16 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:type information of exception is not lost()] (14 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:reading the result string resets the stream()] (21 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:root path works with ApiBuilder and ignoreTrailingSlashes set to false()] (13 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting an InputStream result works and InputStream is closed()] (22 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:wildcard first works()] (18 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:user can serialize objects using gson mapper()] (19 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:custom Servlet works()] (26 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:contentLength works()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:can override HttpResponseExceptions()] (15 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in normal handler works()] (19 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:default charsets work()] (15 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Works With Customizer()] (20 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:most specific exception handler handles exception()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonString()] (14 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:cached session attributes are cached when set()] (19 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:attributeMap works()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonString()] (20 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:trailing slashes are treat as different url, if configuration is set - ApiBuilder()] (17 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:router works with multi-level context-path()] (23 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:root path works with ignoreTrailingSlashes set to false()] (20 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParam returns supplied values()] (12 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()] (18 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:ApiBuilder prefixes paths with slash()] (18 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParam returns value containing equal sign()] (13 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:mapped exceptions are handled()] (16 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:default JavalinJackson includes nulls()] (19 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with regular content()] (12 ms)</li><li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding a filter to the ServletContextHandler works()] (23 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:keys can be used without storing them as fields()()] (23 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the end work with significant trailing slashes()] (22 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:single cookie works()] (24 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes in the middle work with significant trailing slashes()] (22 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body multiple times works()] (18 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:routeRoles are available in afterMatched()] (21 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-attribute-map works()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting a String result works()] (23 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps object to json()] (20 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:trailing slashes are ignored by default - ApiBuilder()] (16 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the end are okay when multipleSlashes is enabled()] (22 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:JavalinGson properly handles json stream()] (21 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes in the middle are okay when multipleSlashes is enabled()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-attribute retrieval does not create session()] (21 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:custom http configuration is used on custom connectors()] (25 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:filers are executed in order()] (19 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:cached session attributes are cached when read()] (15 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path params work()] (16 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:router works with context-path()] (27 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper with content-type respects content-type()] (20 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:exception in future supplier is handled()] (16 ms)</li><li>io.javalin.TestRequest_Java.[engine:junit-jupiter]/[class:io.javalin.TestRequest_Java]/[method:session_attribute_can_be_consumed_easily()] (19 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can accept slashes()] (15 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:utf-8 encoded path-params work()] (15 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded query-params work ISO-8859-1()] (15 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:unicode query-params work()] (17 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:routeRoles are available in beforeMatched()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:contextPath with value works()] (29 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - model is passed to renderer()] (20 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:percentage operator does not consume text()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper can serialize instant()] (22 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all mapped verbs return 200()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()] (15 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Async]/[method:async requests works()] (16 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded query-params work utf-8()] (18 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:path-param values retain their casing()] (15 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:context should throw in case of multiple futures()] (16 ms)</li><li>io.javalin.TestContextRouteRoles.[engine:junit-jupiter]/[class:io.javalin.TestContextRouteRoles]/[method:route roles are available in after()] (22 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for custom code 555()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()] (13 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:protocol works()] (28 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:completing exceptionally with unexpected exceptions in future works()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-param values retain their casing()] (17 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:futures failures are handled by exception-mapper()] (17 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:unicode path-params work()] (17 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:after-handlers execute after HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:unmapped exceptions are caught by default handler()] (16 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFile doesn't throw for missing file()] (29 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:query params that are invalidly encoded are nulled()] (15 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect with status works()] (25 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:contextResolvers config with default settings()] (23 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper runs after exception-mapper()] (18 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:url works()] (29 ms)</li><li>io.javalin.TestContextRouteRoles.[engine:junit-jupiter]/[class:io.javalin.TestContextRouteRoles]/[method:route roles are NOT available in before()] (26 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()] (15 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting an InputStream result works()] (29 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading too large request body does not work()] (18 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:default logging works()] (24 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()] (21 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler supports custom handler()] (20 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:contextResolvers config with custom settings()] (25 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in before-handler works()] (14 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:can write a JSON stream with async()] (14 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when CompressionStrategy not set()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParam works for multiple params()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()] (16 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be used to create a custom renderer()] (21 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:custom connector works()] (33 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()] (16 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params work case-sensitive()] (19 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:hasValue does not throw exception if value is missing()] (15 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:automatic slash prefixing works()] (13 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes together with match sub path()] (19 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then query-params works()] (17 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can write a JSON stream with JavalinJackson()] (27 ms)</li><li>io.javalin.TestContextRouteRoles.[engine:junit-jupiter]/[class:io.javalin.TestContextRouteRoles]/[method:route roles are available in beforeMatched()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns null for unknown param()] (14 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:Context#appData() throws if data does not exist()] (19 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:validator header works()] (21 ms)</li><li>io.javalin.TestContextRouteRoles.[engine:junit-jupiter]/[class:io.javalin.TestContextRouteRoles]/[method:route roles are available in http handler()] (28 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()] (29 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as text if client wants html or text()] (19 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252 alt()] (17 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException subclass handler is used()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in endpoint-handler works()] (21 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns supplied form-param()] (15 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in before-handler works()] (27 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Async]/[method:exception in async works()] (17 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading query-params then body works()] (18 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override 404()] (13 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:completing exceptionally with HttpResponseExceptions in future works()] (15 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect to absolute path works()] (27 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-attribute can be consumed easily()] (27 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - filepath is passed to renderer()] (27 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-attributes work()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()] (13 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()] (17 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()] (18 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in future works()] (17 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException handler is used for subclasses()] (16 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParam defaults to default value()] (24 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:can add filter to do url rewrites based on content type()] (26 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - custom renderer works()] (28 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()] (20 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:non sub-path star wildcard works for plain paths()] (18 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:static-files work with context-path()] (27 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()] (27 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of supplied params()] (25 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with regular content()] (13 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params then body works()] (18 ms)</li><li>io.javalin.TestContextRouteRoles.[engine:junit-jupiter]/[class:io.javalin.TestContextRouteRoles]/[method:route roles are available in afterMatched()] (29 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default values work()] (23 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params with strictContentTypes and without contentType works()] (19 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:hello future world()] (28 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:case insensitive path params work with caseInsensitiveRoutes()] (24 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for POST if only before-handler present()] (17 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:welcome-files work with context-path()] (29 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()] (18 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:multiple nested path-method calls works()] (25 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:form params that are invalidly encoded are nulled()] (18 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:after-handlers run after future is resolved()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:pathParams are extracted from endpoint if beforeMatched has no path-params()] (16 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:only form params that are invalidly encoded are nulled()] (18 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:urls are case sensitive()] (13 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then form-params works()] (20 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - context is passed to renderer()] (24 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can handle endpoint not found differently than regular 404()] (12 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't cache on localhost()] (22 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:path-params work case-sensitive()] (20 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can add multiple path params in same path segment()] (16 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:can set custom headers()] (19 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:unresolved futures are handled by exception-mapper()] (27 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:only query params that are invalidly encoded are nulled()] (27 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:attributes can be removed()] (30 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params support stars in names()] (16 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:error-handlers run after future is resolved()] (27 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()] (18 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in exception-mapper works()] (27 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for GET if only before-handler present()] (16 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:sub-path wildcard works for path-params()] (15 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins throw if they are not registered()] (24 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - exception()] (24 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getOrThrow works()] (15 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - logs()] (25 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom treatment for ValidationException exception response works()] (16 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:custom requestlogger is called()] (32 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before-handler can set header()] (15 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - perfect match()] (16 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper can throw exceptions()] (29 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:pathParams are extracted from beforeMatched if beforeMatched has path-params()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParamMap returns all present path-params()] (30 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath returns the path used to match the request, excluding any AFTER handlers()] (25 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()] (31 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all unmapped verbs return 404()] (18 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:get_or_throw_works_from_java()] (21 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()] (16 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can use future in exception mapper()] (28 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()] (22 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exceptions can have a lot of superclasses()] (36 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()] (33 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:default server uses loom (virtual threads) if enabled()] (37 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched works with singlePageHandler()] (22 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:ApiBuilder works with two services at once()] (38 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:expires is set to max-age=0 by default()] (24 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:timed out futures are canceled()] (22 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:default timeout error isn't jetty branded()] (22 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after is after before()] (17 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:query-params and form-params behave the same()] (19 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()] (15 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:setting a cookie works()] (29 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - external()] (29 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading unicode form-params works()] (27 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:allowNullable throws if called after check()] (18 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler chain()] (36 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:throws MissingConverterException if converter is missing()] (22 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched can skip remaining handlers()] (17 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars not available if not enabled()] (23 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:unresolved future throws()] (27 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()] (17 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:utf-8 encoded path-params work()] (30 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()] (21 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()] (16 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()] (18 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have a wrapped handler collection()] (39 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()] (19 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:error is handled as unexpected throwable()] (20 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving JS from classpath works()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - sub curly in before matched happy path()] (17 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can access underlying exception through ValidationError in exception handler()] (19 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()] (30 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()] (41 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:non sub-path wildcard works for path-params()] (17 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:case sensitive urls work()] (22 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:latest timed out future is canceled()] (24 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:can override timeout with custom error message()] (23 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params follow by splat works()] (20 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:cached session attributes can be computed if not set()] (38 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:user can deserialize objects using gson mapper()] (38 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns defaults to default value()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()] (23 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text is uploaded correctly()] (40 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()] (36 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before- and after-handlers can set a bunch of headers()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath doesn't crash for 404s()] (25 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Async]/[method:timeout and onTimeout should work()] (37 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:slash star routes do require a trailing slash()] (35 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app start without previous static files()] (30 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes are not accepted when not enabled()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving from custom url path works()] (32 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can use Moshi as mapper()] (48 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:dynamic handler responds with 304 when ETag is set()] (29 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts contains star-slash-star()] (23 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard last works()] (29 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()] (37 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving CSS from classpath works()] (32 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:filters work as expected()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()] (24 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()] (21 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal javalin ignores static directory slashes()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()] (39 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()] (37 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app creation()] (33 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:can add custom mimetype mappings()] (33 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when response is too small()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:files in external locations are found()] (33 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving HTML from classpath works()] (34 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:before-handler runs before static resources()] (27 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-attribute shorthand work()] (50 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works for null when nullable()] (20 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:Correct content type is returned when a custom filter with a response wrapper is added()] (34 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars available if enabled()] (36 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()] (19 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:star routes do not require a trailing slash()] (31 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two handlers()] (35 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()] (19 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for overlapping route and file name()] (25 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - angle brackets in beforeMatched happy path()] (27 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:pathless routes are handled properly()] (44 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParam throws for invalid param()] (33 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:static handler responds with 304 when ETag is set()] (29 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()] (26 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()] (21 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can throw exceptions like normal inside thenAccept()] (39 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()] (41 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()] (22 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:pathless routes do not require a trailing slash()] (31 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving mjs from classpath works()] (38 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:writes ETag when uncompressed()] (27 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:unregistered converter fails()] (35 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can call ctx inside thenAccept and exceptionally()] (42 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:automatic slash prefixing works()] (19 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()] (19 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:slashes can be omitted for both path-method and verbs()] (53 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()] (24 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect static files - classpath()] (35 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for instance()] (30 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()] (21 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched fires for head request on get handler()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()] (19 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with wildcards()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:matchedPath returns the path used to match the request()] (28 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()] (18 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()] (23 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()] (17 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()] (18 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns simple 404 if there is no welcome file()] (26 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use JavalinValidation#collectErrors to collect errors from multiple Validators()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()] (18 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app start with previous static files()] (43 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()] (21 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()] (34 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()] (20 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - totally different path leads to 404 without global headers()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts is blank or star-slash-star()] (36 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:welcome files work without trailing slashes on hosted path()] (45 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two requests()] (41 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:calling future in (before - get - after) handlers works()] (51 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()] (25 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with wildcards()] (21 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()] (28 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()] (26 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for webjars()] (34 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()] (20 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()] (22 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:no exceptions in logs when getting hosted path()] (31 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()] (25 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched and afterMatched work()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()] (25 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:urlPathPrefix filters requests to a specific subfolder()] (26 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:app data can be accessed through the Context()] (68 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()] (22 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:only handle resources matching the filter()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal Javalin serves files but serves directory if it is a directory()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()] (26 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:writes ETag when compressed()] (35 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()] (26 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()] (52 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()] (22 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns welcome file, when custom hostedPath matches path()] (48 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching angle brackets in beforeMatched but no matching http handler leads to 404()] (24 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()] (24 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - classpath()] (38 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress media files()] (51 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()] (29 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()] (32 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()] (28 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler prefers filePath over customHandler()] (36 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()] (38 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with multiple objects()] (46 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore can be cleared()] (52 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()] (18 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()] (29 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching sub curly in beforeMatched but no matching http handler leads to 404()] (28 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:calling future in (before - before) handlers works()] (63 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()] (31 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works with wildcards()] (44 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:localization is easy()] (37 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works with long nested resources()] (46 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()] (28 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()] (47 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()] (36 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()] (33 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()] (30 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works()] (38 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()] (37 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()] (29 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()] (62 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Async]/[method:async tasks should start execution in a proper order()] (74 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()] (45 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns welcome file()] (67 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for every ResourceHandler()] (57 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()] (83 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()] (43 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:pathless CrudHandler works()] (62 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()] (43 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for external location()] (28 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress pre-compressed files()] (73 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()] (44 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()] (47 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for passing static config()] (37 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with object overwrite()] (75 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:custom multipart properties applied correctly()] (90 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for classPath location()] (38 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 no ssl ()] (84 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:one app can handle multiple static file locations()] (62 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()] (53 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works()] (82 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder crud()] (60 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with encoded names with encoded url()] (78 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()] (44 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for multiple location()] (54 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:should support nested futures in callbacks()] (118 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()] (96 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 with ssl and ALPN()] (293 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()] (281 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on https()] (471 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for ResourceHandler()] (487 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:missing brackets lead to an exception()] (11 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params cannot directly follow a wildcard()] (12 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:responseBufferSize - setting the javalin option has a higher priority than the jetty option()] (15 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:responseBufferSize - outputBufferSize set via jetty httpConfiguration is respected()] (15 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:content-type can be overridden in handler()] (15 ms)</li><li>io.javalin.TestLifecycleEvents.[engine:junit-jupiter]/[class:io.javalin.TestLifecycleEvents]/[method:handlerAdded event works()] (13 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:responseBufferSize - default is set to the jetty default for outputBufferSize()] (14 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:session-cookie is http-only()] (14 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path param names are required to be unique across path param types()] (14 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:customizers get added()] (18 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:data can be accessed through the app()] (19 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:HEAD returns 200 if GET is mapped()] (15 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler rejects missing resource base()] (16 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty eof exceptions are caught and handled as errors()] (15 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:empty contextPath works()] (13 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty timeout exceptions are caught and handled as errors()] (14 ms)</li><li>io.javalin.TestContextHandlerType.[engine:junit-jupiter]/[class:io.javalin.TestContextHandlerType]/[method:testHandlerTypeCanBeAccessedInContext()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:allHttpHandlers method works()] (15 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:allWsHandlers method works()] (11 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting a header works()] (22 ms)</li><li>io.javalin.TestLifecycleEvents.[engine:junit-jupiter]/[class:io.javalin.TestLifecycleEvents]/[method:wsHandlerAdded event works()] (14 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:app throws exception saying port is busy if it is()] (20 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:invalid path results in 400()] (19 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:removing a set header works()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket 404 works()] (22 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:errors are handled by javaLangErrorHandler()] (16 ms)</li><li>io.javalin.TestLifecycleEvents.[engine:junit-jupiter]/[class:io.javalin.TestLifecycleEvents]/[method:handlerAdded event works for router()] (21 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:ApiBuilder throws if used outside of routes{} call()] (29 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:cookie set on unspecified path is set to root URL()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper throws error()] (17 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:can set samesite easily()] (19 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files doesn't throw for non multipart request()] (23 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:can't set duplicate cookies when no other cookies set()] (20 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for NullableValidator()] (15 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value works()] (13 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()] (18 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:setting a Cookie object works()] (25 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:can set samesite and other properties()] (26 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending input stream works()] (16 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:can't set duplicate cookies when other cookies set()] (24 ms)</li><li>io.javalin.TestGlobalGlobalHeaderConfigPlugin.[engine:junit-jupiter]/[class:io.javalin.TestGlobalGlobalHeaderConfigPlugin]/[method:test headers are set on app()] (22 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:logs handlers added on startup()] (28 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending Comment works()] (17 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line data works()] (17 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:removing cookie without specifying path will not remove cookie set to non-root URL()] (24 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - non audio and video downloading from start works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line Comment works()] (20 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events with ID works()] (19 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()] (20 ms)</li><li>io.javalin.TestHttpAllowedMethodsPlugin.[engine:junit-jupiter]/[class:io.javalin.TestHttpAllowedMethodsPlugin]/[method:enableHttpOptionsForRoutes allows possible methods on routes()] (23 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is NOT thrown when using uppercase path params with TestRedirectToLowercasePathPlugin()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routeRoles are available in wsBeforeUpgrade()] (19 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video file smaller than chunksize works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()] (19 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video large file works()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade and wsAfterUpgrade are invoked()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video overreaching range works()] (25 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events to multiple clients works()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket subprotocol is set if included()] (26 ms)</li><li>io.javalin.TestCookie.[engine:junit-jupiter]/[class:io.javalin.TestCookie]/[method:removing cookie without specifying path will remove cookie set to root URL()] (34 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:binary messages()] (37 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:GH-1956 seekable request with no RANGE header contains Content-Length and Accept-Ranges()] (31 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:getting queryParam in sse handler works()] (17 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video range works and input stream closed()] (25 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie should not be duplicated()] (32 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - non audio and video download resuming works()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade does work with skipRemainingHandlers()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:each connection receives a unique id()] (30 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie path is root()] (34 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade can stop an upgrade request in progress()] (17 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video no-range works and input stream closed()] (36 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()] (26 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is thrown when using non-lowercase paths with TestRedirectToLowercasePathPlugin()] (19 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade can modify the upgrade request but wsAfterUpgrade can not()] (32 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sse works from ApiBuilder()] (26 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:pathParams are available in wsBeforeUpgrade()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()] (38 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBefore with path works()] (18 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:mapped exceptions are handled()] (18 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:exceptions that occur during response writing are handled()] (39 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur when the BEFORE_MATCHED stage is skipped()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager rejects invalid request()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:most specific exception handler handles exception()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:test all subclasses of HttpResponseException()] (24 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()] (25 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:non-lowercase path-params are not redirected()] (36 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:before handlers work()] (20 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:renaming cookieStore cookie works()] (47 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsBefore short circuits endpoint handler()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:multiple before and after handlers can be called()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsAfter works for onConnect()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()] (19 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and path-params case sensitive works()] (23 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()] (32 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager doesn't crash on exception()] (24 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:after handlers work()] (28 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsAfter is covered by wsException()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager accepts valid request()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade in full lifecycle()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()] (37 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:custom WebSocketServletFactory works()] (40 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()] (57 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()] (27 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:user can freeze sse handler to leak sse client outside the handler()] (67 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur with alias check()] (54 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:clearing the rate-limiter works()] (73 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:unmapped exceptions are caught by default handler()] (49 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()] (50 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()] (58 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with non encoded names with encoded url()] (77 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade exception pattern can be combined with a custom exception handler()] (82 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()] (72 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending empty Comment works()] (109 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()] (79 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending async data is properly processed()] (123 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:web socket logging works()] (117 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()] (150 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

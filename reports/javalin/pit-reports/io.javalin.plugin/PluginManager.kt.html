@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PluginManager.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.plugin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.config.JavalinConfig</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class PluginManager internal constructor(private val cfg: JavalinConfig) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val plugins = mutableListOf&#60;Plugin&#60;*&#62;&#62;()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val initializedPlugins = mutableListOf&#60;Plugin&#60;*&#62;&#62;()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val enabledPlugins = mutableListOf&#60;Plugin&#60;*&#62;&#62;()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun register(plugin: Plugin&#60;*&#62;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_12'/>
+12
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_12'>2</a>
+<span>
+
+1. register : negated conditional &rarr; KILLED<br/>
+
+2. register : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!plugin.repeatable() &#38;&#38; plugins.any { it.javaClass == plugin.javaClass }) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw PluginAlreadyRegisteredException(plugin)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        plugins.add(plugin)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_16'>1</a>
+<span>
+
+1. register : removed call to io/javalin/plugin/PluginManager::initializePlugins &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        initializePlugins()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun initializePlugins() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_20'>1</a>
+<span>
+
+1. initializePlugins : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (plugins.size != initializedPlugins.size) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            val pluginsToInitialize = plugins</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .asSequence()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_23'/>
+23
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_23'>2</a>
+<span>
+
+1. invoke : replaced Boolean return with True for io/javalin/plugin/PluginManager$initializePlugins$pluginsToInitialize$1::invoke &rarr; TIMED_OUT<br/>
+
+2. invoke : negated conditional &rarr; TIMED_OUT<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>                .filter { it !in initializedPlugins }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .sortedBy { it.priority() }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_26'/>
+26
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_26'>1</a>
+<span>
+
+1. initializePlugins : negated conditional &rarr; TIMED_OUT<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            for (plugin in pluginsToInitialize) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                initializedPlugins.add(plugin)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_28'>1</a>
+<span>
+
+1. initializePlugins : removed call to io/javalin/plugin/Plugin::onInitialize &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                plugin.onInitialize(cfg)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun startPlugins() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        initializedPlugins</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .asSequence()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_36'>2</a>
+<span>
+
+1. invoke : replaced Boolean return with True for io/javalin/plugin/PluginManager$startPlugins$1::invoke &rarr; SURVIVED<br/>
+
+2. invoke : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            .filter { it !in enabledPlugins }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .sortedBy { it.priority() }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .forEach {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_39'>1</a>
+<span>
+
+1. startPlugins : removed call to io/javalin/plugin/Plugin::onStart &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                it.onStart(cfg)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                enabledPlugins.add(it)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun &#60;T&#62; getContextPlugin(clazz: Class&#60;out ContextPlugin&#60;*, T&#62;&#62;): ContextPlugin&#60;*, T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_45'>3</a>
+<span>
+
+1. getContextPlugin : negated conditional &rarr; KILLED<br/>
+
+2. getContextPlugin : negated conditional &rarr; KILLED<br/>
+
+3. getContextPlugin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (plugins.find { it.javaClass == clazz } ?: throw PluginNotRegisteredException(clazz)) as ContextPlugin&#60;*, T&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_12'>12</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_12'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should not throw error for repeatable plugins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()]</span></span> removed call to io/javalin/plugin/PluginManager::initializePlugins &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initializePlugins<br/><b>Killed by : </b>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_23'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for io/javalin/plugin/PluginManager$initializePlugins$pluginsToInitialize$1::invoke &rarr; TIMED_OUT</span>
+</div> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_26'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initializePlugins<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initializePlugins<br/><b>Killed by : </b>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()]</span></span> removed call to io/javalin/plugin/Plugin::onInitialize &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_36'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for io/javalin/plugin/PluginManager$startPlugins$1::invoke &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager$startPlugins$1,-method=invoke,-methodDesc=(Lio/javalin/plugin/Plugin;)Ljava/lang/Boolean;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager$startPlugins$1,-method=invoke,-methodDesc=(Lio/javalin/plugin/Plugin;)Ljava/lang/Boolean;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager$startPlugins$1,-method=invoke,-methodDesc=(Lio/javalin/plugin/Plugin;)Ljava/lang/Boolean;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:pluginConfig throws if defaultConfig is null()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for empty origins if reflectClientOrigin is false()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for combination of anyHost and allowCredentials true()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should not throw error for repeatable plugins()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should work with anonymous objects()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugin should be able to register a new plugin in init phase()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugins are initialized in the proper order()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should throw error if plugin is already registered()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:should run lifecycle methods in right order()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestGlobalGlobalHeaderConfigPlugin.[engine:junit-jupiter]/[class:io.javalin.TestGlobalGlobalHeaderConfigPlugin]/[method:test headers are set on app()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()]</li> <li>io.javalin.TestHttpAllowedMethodsPlugin.[engine:junit-jupiter]/[class:io.javalin.TestHttpAllowedMethodsPlugin]/[method:enableHttpOptionsForRoutes allows possible methods on routes()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is NOT thrown when using uppercase path params with TestRedirectToLowercasePathPlugin()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be used to create a custom renderer()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is thrown when using non-lowercase paths with TestRedirectToLowercasePathPlugin()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params follow by splat works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:non-lowercase path-params are not redirected()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:pluginConfig throws if defaultConfig is null()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>startPlugins<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:pluginConfig throws if defaultConfig is null()]</span></span> removed call to io/javalin/plugin/Plugin::onStart &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getContextPlugin<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getContextPlugin<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getContextPlugin<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should throw error if plugin is already registered()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>register<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager,-method=register,-methodDesc=(Lio/javalin/plugin/Plugin;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager,-method=register,-methodDesc=(Lio/javalin/plugin/Plugin;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.PluginManager,-method=register,-methodDesc=(Lio/javalin/plugin/Plugin;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin returns the registered plugin()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:pluginConfig throws if defaultConfig is null()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for empty origins if reflectClientOrigin is false()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for combination of anyHost and allowCredentials true()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should work with anonymous objects()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugin should be able to register a new plugin in init phase()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugins are initialized in the proper order()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should throw error if plugin is already registered()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:should run lifecycle methods in right order()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestGlobalGlobalHeaderConfigPlugin.[engine:junit-jupiter]/[class:io.javalin.TestGlobalGlobalHeaderConfigPlugin]/[method:test headers are set on app()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()]</li> <li>io.javalin.TestHttpAllowedMethodsPlugin.[engine:junit-jupiter]/[class:io.javalin.TestHttpAllowedMethodsPlugin]/[method:enableHttpOptionsForRoutes allows possible methods on routes()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is NOT thrown when using uppercase path params with TestRedirectToLowercasePathPlugin()]</li> <li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be used to create a custom renderer()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is thrown when using non-lowercase paths with TestRedirectToLowercasePathPlugin()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params follow by splat works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:non-lowercase path-params are not redirected()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()]</li> <li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5cf98e0d_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5cf98e0d_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should throw error if plugin is already registered()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>register<br/><b>Killed by : </b>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugins are initialized in the proper order()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:enableRedirectToLowercasePaths with caseInsensitiveRoutes throws exception()] (1 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin returns the registered plugin()] (1 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:pluginConfig throws if defaultConfig is null()] (1 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for empty origins if reflectClientOrigin is false()] (1 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for combination of anyHost and allowCredentials true()] (2 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should not throw error for repeatable plugins()] (1 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should work with anonymous objects()] (2 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugin should be able to register a new plugin in init phase()] (2 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:plugins are initialized in the proper order()] (1 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:registerPlugin should throw error if plugin is already registered()] (3 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:should run lifecycle methods in right order()] (4 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()] (2 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()] (14 ms)</li><li>io.javalin.TestGlobalGlobalHeaderConfigPlugin.[engine:junit-jupiter]/[class:io.javalin.TestGlobalGlobalHeaderConfigPlugin]/[method:test headers are set on app()] (22 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()] (43 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be accessed through the Context by class()] (21 ms)</li><li>io.javalin.TestHttpAllowedMethodsPlugin.[engine:junit-jupiter]/[class:io.javalin.TestHttpAllowedMethodsPlugin]/[method:enableHttpOptionsForRoutes allows possible methods on routes()] (23 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is NOT thrown when using uppercase path params with TestRedirectToLowercasePathPlugin()] (22 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins can be used to create a custom renderer()] (21 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()] (29 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()] (18 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()] (22 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:exception is thrown when using non-lowercase paths with TestRedirectToLowercasePathPlugin()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()] (17 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()] (16 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()] (18 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params follow by splat works()] (20 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()] (20 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()] (24 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:non-lowercase path-params are not redirected()] (36 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()] (25 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()] (19 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()] (19 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()] (26 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()] (24 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()] (21 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()] (18 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()] (17 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()] (34 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()] (28 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()] (26 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()] (21 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()] (22 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()] (23 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()] (22 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()] (23 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()] (30 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()] (43 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()] (44 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()] (44 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins throw if they are not registered()] (24 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

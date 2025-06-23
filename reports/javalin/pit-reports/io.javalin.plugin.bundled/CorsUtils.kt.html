@@ -1,0 +1,3888 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CorsUtils.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.plugin.bundled</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>internal object CorsUtils {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * validates a given scheme against [the RFC3986 definition](https://www.rfc-editor.org/rfc/rfc3986#section-3.1)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_9'>4</a>
+<span>
+
+1. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+2. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+3. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+4. isSchemeValid$javalin : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    internal fun isSchemeValid(scheme: CharSequence) = scheme.isNotEmpty() &#38;&#38; scheme.first().isLetter() &#38;&#38; scheme.all {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_10'/>
+10
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_10'>5</a>
+<span>
+
+1. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+2. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+3. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+4. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+5. isSchemeValid$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        it.isLetter() || it.isAsciiDigit() || it == &#39;-&#39; || it == &#39;+&#39; || it == &#39;.&#39;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_11'>1</a>
+<span>
+
+1. isSchemeValid$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::isSchemeValid$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * returns true if the [origin] is a valid origin according to [RFC6454](https://www.rfc-editor.org/rfc/rfc6454#section-7)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * __Notes:__</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * - We ignore list of origins</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun isValidOrigin(origin: String): Boolean {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val schemeAndHostDelimiter = origin.indexOf(&#34;://&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val portResult = extractPort(origin)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_22'>1</a>
+<span>
+
+1. isValidOrigin$javalin : replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::isValidOrigin$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_23'>2</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+2. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            origin.isEmpty() -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_24'>1</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            origin == &#34;null&#34; -&#62; true</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // query strings are not a valid part of an origin</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_26'>1</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            &#34;?&#34; in origin -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // schemes are a required part of an origin</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_28'>2</a>
+<span>
+
+1. isValidOrigin$javalin : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            schemeAndHostDelimiter &#60;= 0 -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_29'>1</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            !isSchemeValid(origin.subSequence(0, schemeAndHostDelimiter)) -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // only slashes that are allowed are the delimiter slashes</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_31'>2</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+2. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            origin.count { it == &#39;/&#39; } != 2 -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // if a port is specified is must consist of only digits</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_33'>1</a>
+<span>
+
+1. isValidOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            portResult is PortResult.ErrorState -&#62; false</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            else -&#62; true</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Tries to extract a port from a given origin.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the origin does not contain a scheme [PortResult.ErrorState.InvalidOrigin] is returned.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If no port is specified [PortResult.NoPortSpecified] is returned.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the port value contains non digit characters [PortResult.ErrorState.InvalidPort] is returned.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Otherwise [PortResult.PortSpecified] with the extracted [PortResult.PortSpecified.port] value is returned.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * __Notes:__</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * - Should only be called on an origin with a valid scheme, see [isSchemeValid]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun extractPort(origin: String): PortResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_49'>1</a>
+<span>
+
+1. extractPort$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (&#34;://&#34; !in origin) return PortResult.ErrorState.InvalidOrigin</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val possiblePortIndex = origin.lastIndexOf(&#39;:&#39;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val colonAfterSchemeIndex = origin.indexOf(&#39;:&#39;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_52'>1</a>
+<span>
+
+1. extractPort$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        val hasPort = possiblePortIndex != colonAfterSchemeIndex</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_53'>1</a>
+<span>
+
+1. extractPort$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!hasPort) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            return PortResult.NoPortSpecified</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_56'>1</a>
+<span>
+
+1. extractPort$javalin : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        val possiblePortDigits = origin.subSequence(possiblePortIndex + 1, origin.length).toString()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_57'>2</a>
+<span>
+
+1. extractPort$javalin : negated conditional &rarr; KILLED<br/>
+
+2. extractPort$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (possiblePortDigits.any { !it.isAsciiDigit() }) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            return PortResult.ErrorState.InvalidPort</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return PortResult.PortSpecified(possiblePortDigits.toInt(radix = 10))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Tries to extract a port from a given origin, falling back to https / http scheme defaults if possible.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun extractPortOrSchemeDefault(origin: String): PortResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val portResult = extractPort(origin)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_69'>2</a>
+<span>
+
+1. extractPortOrSchemeDefault$javalin : negated conditional &rarr; KILLED<br/>
+
+2. extractPortOrSchemeDefault$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            portResult is PortResult.NoPortSpecified &#38;&#38; origin.startsWith(&#34;https://&#34;, ignoreCase = true) -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                PortResult.PortSpecified(443, fromSchemeDefault = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_72'>2</a>
+<span>
+
+1. extractPortOrSchemeDefault$javalin : negated conditional &rarr; KILLED<br/>
+
+2. extractPortOrSchemeDefault$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            portResult is PortResult.NoPortSpecified &#38;&#38; origin.startsWith(&#34;http://&#34;, ignoreCase = true) -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                PortResult.PortSpecified(80, fromSchemeDefault = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            else -&#62; portResult</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun addSchemeIfMissing(host: String, defaultScheme: String): String {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val hostWithScheme = when {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // do not add a scheme to special values</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_82'>1</a>
+<span>
+
+1. addSchemeIfMissing$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            host == &#34;*&#34; -&#62; host</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_83'>1</a>
+<span>
+
+1. addSchemeIfMissing$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            host == &#34;null&#34; -&#62; host</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_84'>1</a>
+<span>
+
+1. addSchemeIfMissing$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            &#34;://&#34; in host -&#62; host</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            else -&#62; &#34;$defaultScheme://$host&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_88'>3</a>
+<span>
+
+1. addSchemeIfMissing$javalin : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. addSchemeIfMissing$javalin : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+3. addSchemeIfMissing$javalin : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::addSchemeIfMissing$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return hostWithScheme.lowercase(Locale.ROOT).removeSuffix(&#34;/&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun normalizeOrigin(origin: String): String {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val portResult = extractPortOrSchemeDefault(origin)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_93'>2</a>
+<span>
+
+1. normalizeOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+2. normalizeOrigin$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (portResult is PortResult.PortSpecified &#38;&#38; portResult.fromSchemeDefault) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_94'>1</a>
+<span>
+
+1. normalizeOrigin$javalin : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::normalizeOrigin$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;$origin:${portResult.port}&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_96'>1</a>
+<span>
+
+1. normalizeOrigin$javalin : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::normalizeOrigin$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return origin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun parseAsOriginParts(origin: String): OriginParts {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val schemeAndHostDelimiter =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_101'/>
+101
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_101'>3</a>
+<span>
+
+1. parseAsOriginParts$javalin : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+3. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            origin.indexOf(&#34;://&#34;).also { require(it &#62; 0) { &#34;scheme delimiter :// must exist&#34; } }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val scheme: String = origin.subSequence(0, schemeAndHostDelimiter).toString()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_103'>1</a>
+<span>
+
+1. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            .also { require(isSchemeValid(it)) { &#34;specified scheme is not valid&#34; } }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_104'>2</a>
+<span>
+
+1. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+2. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        val port = (extractPort(origin) as? PortResult.PortSpecified)?.port</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            ?: throw IllegalArgumentException(&#34;explicit port is required&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_106'>1</a>
+<span>
+
+1. parseAsOriginParts$javalin : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        val host = origin.subSequence(schemeAndHostDelimiter + 3, origin.lastIndexOf(&#39;:&#39;)).toString()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val reconstructedOrigin = &#34;$scheme://$host:$port&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_109'>1</a>
+<span>
+
+1. parseAsOriginParts$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        require(reconstructedOrigin == origin) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;&#34;&#34;Parsing failed!</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            |reconstructedOrigin &#39;$reconstructedOrigin&#39; did not match the original origin &#39;$origin&#39;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            |This is a critical error and should never happen!</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            |</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            |Please report it as a GitHub issue at https://github.com/javalin/javalin/issues/new/choose with the exact error message!</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            &#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return OriginParts(scheme, host, port)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun originsMatch(clientOrigin: OriginParts, serverOrigin: OriginParts): Boolean {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_122'>1</a>
+<span>
+
+1. originsMatch$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (clientOrigin == serverOrigin) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_123'>1</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_125'>1</a>
+<span>
+
+1. originsMatch$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (clientOrigin.scheme != serverOrigin.scheme) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_126'/>
+126
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_126'>1</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_129'>1</a>
+<span>
+
+1. originsMatch$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (clientOrigin.port != serverOrigin.port) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_130'>1</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // server host value could be something like `*.example.com`</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // if the client sends a.example.com it should match</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_135'/>
+135
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_135'>1</a>
+<span>
+
+1. originsMatch$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!serverOrigin.host.startsWith(&#34;*.&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_136'/>
+136
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_136'>1</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // the above lines imply a requirement of at least one dot in the origin header sent by the client</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_139'>1</a>
+<span>
+
+1. originsMatch$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (&#39;.&#39; !in clientOrigin.host) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_140'>1</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val serverHostBase = serverOrigin.host.removePrefix(&#34;*.&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val clientHostBase = clientOrigin.host.split(&#39;.&#39;, limit = 2)[1]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_145'/>
+145
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_145'>2</a>
+<span>
+
+1. originsMatch$javalin : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; SURVIVED<br/>
+
+2. originsMatch$javalin : replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return serverHostBase == clientHostBase</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun originFulfillsWildcardRequirements(origin: String): WildcardResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_149'>1</a>
+<span>
+
+1. originFulfillsWildcardRequirements$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return when (origin.count { it == &#39;*&#39; }) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            0 -&#62; WildcardResult.NoWildcardDetected</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_151'/>
+151
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_151'>1</a>
+<span>
+
+1. originFulfillsWildcardRequirements$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            1 -&#62; if (&#34;://*.&#34; !in origin) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                WildcardResult.ErrorState.WildcardNotAtTheStartOfTheHost</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                WildcardResult.WildcardOkay</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            else -&#62; WildcardResult.ErrorState.TooManyWildcards</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>internal sealed class PortResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    internal sealed class ErrorState : PortResult() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internal object InvalidOrigin : ErrorState()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internal object InvalidPort : ErrorState()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    internal object NoPortSpecified : PortResult()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_169'/>
+169
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_169'>3</a>
+<span>
+
+1. getPort : replaced int return with 0 for io/javalin/plugin/bundled/PortResult$PortSpecified::getPort &rarr; KILLED<br/>
+
+2. getFromSchemeDefault : replaced boolean return with false for io/javalin/plugin/bundled/PortResult$PortSpecified::getFromSchemeDefault &rarr; KILLED<br/>
+
+3. getFromSchemeDefault : replaced boolean return with true for io/javalin/plugin/bundled/PortResult$PortSpecified::getFromSchemeDefault &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    internal data class PortSpecified(val port: Int, val fromSchemeDefault: Boolean = false) : PortResult()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>internal sealed class WildcardResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    internal sealed class ErrorState : WildcardResult() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internal object TooManyWildcards : ErrorState()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internal object WildcardNotAtTheStartOfTheHost : ErrorState()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    internal object NoWildcardDetected : WildcardResult()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    internal object WildcardOkay : WildcardResult()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_184'/>
+184
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_184'>3</a>
+<span>
+
+1. getPort : replaced int return with 0 for io/javalin/plugin/bundled/OriginParts::getPort &rarr; SURVIVED<br/>
+
+2. getScheme : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/OriginParts::getScheme &rarr; SURVIVED<br/>
+
+3. getHost : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/OriginParts::getHost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>internal data class OriginParts(val scheme: String, val host: String, val port: Int)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Returns true if and only if the character is one of the ascii digits (0 - 9).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The existing Char.isDigit() also accepts other digit symbols such as &#34;MATHEMATICAL BOLD DIGIT ZERO&#34; as it accepts any</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * character with CharCategory.DECIMAL_DIGIT_NUMBER</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * RFC2234 defines digits as 0 - 9 only.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Ref: https://www.rfc-editor.org/rfc/rfc2234#section-3.4</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Ref: https://www.fileformat.info/info/unicode/category/Nd/list.htm</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d9436c8_196'/>
+196
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_196'>5</a>
+<span>
+
+1. isAsciiDigit : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isAsciiDigit : negated conditional &rarr; KILLED<br/>
+
+3. isAsciiDigit : changed conditional boundary &rarr; KILLED<br/>
+
+4. isAsciiDigit : replaced boolean return with true for io/javalin/plugin/bundled/CorsUtilsKt::isAsciiDigit &rarr; KILLED<br/>
+
+5. isAsciiDigit : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>private fun Char.isAsciiDigit(): Boolean = this in &#39;0&#39;..&#39;9&#39;</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_10'>10</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_10'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::isSchemeValid$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::isValidOrigin$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=isValidOrigin$javalin,-methodDesc=(Ljava/lang/String;)Z],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=isValidOrigin$javalin,-methodDesc=(Ljava/lang/String;)Z],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=isValidOrigin$javalin,-methodDesc=(Ljava/lang/String;)Z],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:rejects invalid origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:multiple wildcards lead to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:wildcard in the middle leads to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:a valid origin without explicit port returns NoPortSpecified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:a valid origin without explicit port returns NoPortSpecified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:a valid origin without explicit port returns NoPortSpecified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:can extract port if specified()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPortOrSchemeDefault$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractPortOrSchemeDefault$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPortOrSchemeDefault$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractPortOrSchemeDefault$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_88'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:passing in the null origin as an allowed host does not work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:exception for untransformable hosts exists()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:multiple wildcards lead to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:wildcard in the middle leads to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=addSchemeIfMissing$javalin,-methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:passing in the null origin as an allowed host does not work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:exception for untransformable hosts exists()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:multiple wildcards lead to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:wildcard in the middle leads to an exception()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addSchemeIfMissing$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::addSchemeIfMissing$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>normalizeOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>normalizeOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>normalizeOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::normalizeOrigin$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>normalizeOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not touch special values()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/CorsUtils::normalizeOrigin$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_101'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=parseAsOriginParts$javalin,-methodDesc=(Ljava/lang/String;)Lio/javalin/plugin/bundled/OriginParts;],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=parseAsOriginParts$javalin,-methodDesc=(Ljava/lang/String;)Lio/javalin/plugin/bundled/OriginParts;],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=parseAsOriginParts$javalin,-methodDesc=(Ljava/lang/String;)Lio/javalin/plugin/bundled/OriginParts;],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:scheme is required()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:explicit port is required()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:specified scheme must follow rfc rules()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:does not resolve wildcard hosts()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:works for valid inputs()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:scheme is required()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:scheme is required()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:explicit port is required()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:explicit port is required()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:explicit port is required()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:works for valid inputs()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseAsOriginParts$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:works for valid inputs()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for equal values()]</span></span> replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_126'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching schemes()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching ports()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_135'>135</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_135'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_136'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_145'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=originsMatch$javalin,-methodDesc=(Lio/javalin/plugin/bundled/OriginParts;Lio/javalin/plugin/bundled/OriginParts;)Z],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=originsMatch$javalin,-methodDesc=(Lio/javalin/plugin/bundled/OriginParts;Lio/javalin/plugin/bundled/OriginParts;)Z],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtils,-method=originsMatch$javalin,-methodDesc=(Lio/javalin/plugin/bundled/OriginParts;Lio/javalin/plugin/bundled/OriginParts;)Z],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>originsMatch$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> replaced boolean return with false for io/javalin/plugin/bundled/CorsUtils::originsMatch$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:no wildcard origins are okay()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_151'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:wildcards in the middle are not accepted()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_169'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPort<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> replaced int return with 0 for io/javalin/plugin/bundled/PortResult$PortSpecified::getPort &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getFromSchemeDefault<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()]</span></span> replaced boolean return with false for io/javalin/plugin/bundled/PortResult$PortSpecified::getFromSchemeDefault &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getFromSchemeDefault<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not add a default port if one is already there()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/PortResult$PortSpecified::getFromSchemeDefault &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_184'>184</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_184'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPort<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for io/javalin/plugin/bundled/OriginParts::getPort &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getPort,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getPort,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getPort,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching ports()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getHost<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/OriginParts::getHost &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getScheme<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/OriginParts::getScheme &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getScheme,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getScheme,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.OriginParts,-method=getScheme,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching schemes()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching ports()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_196'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAsciiDigit<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAsciiDigit<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAsciiDigit<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtilsKt,-method=isAsciiDigit,-methodDesc=(C)Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtilsKt,-method=isAsciiDigit,-methodDesc=(C)Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.CorsUtilsKt,-method=isAsciiDigit,-methodDesc=(C)Z],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not add a default port if one is already there()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:specified scheme must follow rfc rules()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:can extract port if specified()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:does not resolve wildcard hosts()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:works for valid inputs()]</li> <li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:rejects invalid origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()]</li> <li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAsciiDigit<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> replaced boolean return with true for io/javalin/plugin/bundled/CorsUtilsKt::isAsciiDigit &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAsciiDigit<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_198'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_199'>199</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_199'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSchemeValid$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_201'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isValidOrigin$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_203'>203</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_203'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not add a default port if one is already there()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>extractPort$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d9436c8_207'>207</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d9436c8_207'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:no wildcard origins are okay()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:at most one wildcard is allowed()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:wildcards in the middle are not accepted()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:at most one wildcard is allowed()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>originFulfillsWildcardRequirements$javalin<br/><b>Killed by : </b>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:at most one wildcard is allowed()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for wildcard on server-side()] (0 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()] (17 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:wildcard subdomain work()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()] (22 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for specific origins()] (23 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()] (44 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns special error for invalid port values()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not add a default port if one is already there()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:can extract port if specified()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:accepts valid origins()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:does not resolve wildcard hosts()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:works for valid inputs()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsValidOrigin]/[method:rejects invalid origins()] (0 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()] (18 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default scheme can be overridden()] (21 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:capitalization does not matter()] (22 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:default port detection works()] (23 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:exception for untransformable hosts exists()] (2 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:multiple wildcards lead to an exception()] (2 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:wildcard in the middle leads to an exception()] (2 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:throws for non-empty if reflectClientOrigin is true()] (2 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing multiple headers()] (17 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is absent outside of preflight()] (19 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()] (16 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExposingHeaders]/[method:allows exposing a single header()] (18 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can have allowsCredentials set true()] (20 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:can enable cors for star origins()] (24 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:has allowsCredentials false by default()] (25 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:scheme is required()] (1 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:explicit port is required()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:TestOriginParts]/[method:specified scheme must follow rfc rules()] (2 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching ports()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:adds a port if not specified()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:accepts valid schemes()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:IsSchemeValid]/[method:rejects invalid schemes()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does not match for mismatching schemes()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:a valid origin without explicit port returns NoPortSpecified()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:returns errors for invalid origins()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:NormalizeOrigin]/[method:does not touch special values()] (1 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:https fallback works()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:ExtractPort]/[method:http fallback works()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:at most one wildcard is allowed()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:no wildcard origins are okay()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:wildcards in the middle are not accepted()] (0 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:WildcardRequirements]/[method:wildcards at the start of the host are accepted()] (1 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:AddSchemeIfMissing]/[method:works()] (0 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ExceptionTests]/[method:passing in the null origin as an allowed host does not work()] (1 ms)</li><li>io.javalin.TestCorsUtils.[engine:junit-jupiter]/[class:io.javalin.TestCorsUtils]/[nested-class:OriginsMatch]/[method:does match for equal values()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

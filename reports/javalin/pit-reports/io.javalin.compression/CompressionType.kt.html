@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CompressionType.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.compression</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_3'/>
+3
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_3'>2</a>
+<span>
+
+1. getTypeName : replaced return value with &#34;&#34; for io/javalin/compression/CompressionType::getTypeName &rarr; KILLED<br/>
+
+2. getExtension : replaced return value with &#34;&#34; for io/javalin/compression/CompressionType::getExtension &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>enum class CompressionType(val typeName: String, val extension: String) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    GZIP(&#34;gzip&#34;, &#34;.gz&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BR(&#34;br&#34;, &#34;.br&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NONE(&#34;&#34;, &#34;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@307ee048_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@307ee048_3'>3</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@307ee048_3'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeName<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> replaced return value with &#34;&#34; for io/javalin/compression/CompressionType::getTypeName &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getExtension<br/><b>Killed by : </b>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:can set headers after precompressing handler is done()]</span></span> replaced return value with &#34;&#34; for io/javalin/compression/CompressionType::getExtension &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()] (1 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting an InputStream result works()] (29 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when CompressionStrategy not set()] (22 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:can write a JSON stream with async()] (14 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can write a JSON stream with JavalinJackson()] (27 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't brotli when brotli is disabled()] (21 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't gzip when gzip is disabled()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when brotli disabled, but both requested()] (22 ms)</li><li>io.javalin.http.ContentTypeTest.[engine:junit-jupiter]/[class:io.javalin.http.ContentTypeTest]/[method:file should be served even if content type isn't set()] (16 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()] (36 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()] (24 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:dynamic handler responds with 304 when ETag is set()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing javalin ignores static directory slashes()] (25 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()] (19 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars available if enabled()] (36 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:static handler responds with 304 when ETag is set()] (29 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:can set headers after precompressing handler is done()] (27 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:writes ETag when uncompressed()] (27 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect static files - classpath()] (35 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()] (19 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()] (24 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:response encoding matches header()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()] (19 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()] (22 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()] (28 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()] (35 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()] (20 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for webjars()] (34 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()] (25 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when Accept-Encoding header is set and size is big enough()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()] (23 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when static files were pre-compressed()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()] (26 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:writes ETag when compressed()] (35 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()] (24 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when Accept-Encoding is not set()] (34 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()] (32 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()] (26 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()] (55 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()] (31 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression strategy is used()] (40 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()] (34 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()] (21 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:only creates one compressed version even if query params are present()] (44 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()] (33 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for ResourceHandler - precompress()] (36 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()] (62 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()] (37 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:precompressed files are served with correct content-type()] (43 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:first available encoding is used()] (49 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()] (71 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()] (79 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for large static files()] (70 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()] (90 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()] (78 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for dynamic responses of different sizes()] (102 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for large static files()] (113 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()] (164 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()] (418 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

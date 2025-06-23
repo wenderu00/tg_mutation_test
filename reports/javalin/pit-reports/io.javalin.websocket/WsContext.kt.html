@@ -1,0 +1,3814 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>WsContext.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.websocket</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.jetty.upgradeContextKey</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.jetty.upgradeSessionAttrsKey</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.javalinLazy</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.eclipse.jetty.websocket.api.CloseStatus</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.eclipse.jetty.websocket.api.RemoteEndpoint</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.eclipse.jetty.websocket.api.Session</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.reflect.Type</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.ByteBuffer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.TimeUnit</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import kotlin.reflect.javaType</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import kotlin.reflect.typeOf</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The [WsContext] class holds Jetty&#39;s [Session] and provides (convenient) delegate methods.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * It adds functionality similar to the API found in [io.javalin.http.Context].</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * It also adds a [send] method, which calls [RemoteEndpoint.sendString] on [Session.getRemote]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>abstract class WsContext(private val sessionId: String, @JvmField val session: Session) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_29'>1</a>
+<span>
+
+1. invoke : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    internal val upgradeCtx by javalinLazy { session.jettyUpgradeRequest.httpServletRequest.getAttribute(upgradeContextKey) as Context }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Suppress(&#34;UNCHECKED_CAST&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_32'>3</a>
+<span>
+
+1. getSessionAttributes : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::getSessionAttributes &rarr; KILLED<br/>
+
+2. invoke : negated conditional &rarr; KILLED<br/>
+
+3. invoke : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext$sessionAttributes$2::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private val sessionAttributes by javalinLazy { session.jettyUpgradeRequest.httpServletRequest.getAttribute(upgradeSessionAttrsKey) as? Map&#60;String, Any&#62; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns the path that was used to match this request */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_35'>1</a>
+<span>
+
+1. matchedPath : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::matchedPath &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun matchedPath() = upgradeCtx.matchedPath()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Reified version of [sendAsClass] (Kotlin only) */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @OptIn(ExperimentalStdlibApi::class)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    inline fun &#60;reified T : Any&#62; sendAsClass(message: T) = sendAsClass(message, typeOf&#60;T&#62;().javaType)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Serializes object to a JSON-string using the registered [io.javalin.json.JsonMapper] and sends it over the socket */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_42'>1</a>
+<span>
+
+1. send : removed call to io/javalin/websocket/WsContext::sendAsClass &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun send(message: Any) = sendAsClass(message, message::class.java)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Serializes object to a JSON-string using the registered [io.javalin.json.JsonMapper] and sends it over the socket */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_45'>1</a>
+<span>
+
+1. sendAsClass : removed call to io/javalin/websocket/WsContext::send &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun sendAsClass(message: Any, type: Type) = send(upgradeCtx.jsonMapper().toJsonString(message, type))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Sends a [String] over the socket */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_48'>1</a>
+<span>
+
+1. send : removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun send(message: String) = session.remote.sendString(message)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Sends a [ByteBuffer] over the socket */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_51'>1</a>
+<span>
+
+1. send : removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendBytes &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun send(message: ByteBuffer) = session.remote.sendBytes(message)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Sends a ping over the socket */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JvmOverloads</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_55'>2</a>
+<span>
+
+1. sendPing : removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendPing &rarr; KILLED<br/>
+
+2. sendPing : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun sendPing(applicationData: ByteBuffer? = null) = session.remote.sendPing(applicationData ?: ByteBuffer.allocate(0))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Enables automatic pings at a 15 second interval, preventing the connection from timing out */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun enableAutomaticPings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_59'>1</a>
+<span>
+
+1. enableAutomaticPings : removed call to io/javalin/websocket/WsContext::enableAutomaticPings &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        enableAutomaticPings(15, TimeUnit.SECONDS, null)</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Enables automatic pings at the specified interval, preventing the connection from timing out */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JvmOverloads</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun enableAutomaticPings(interval: Long, unit: TimeUnit, applicationData: ByteBuffer? = null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_65'>1</a>
+<span>
+
+1. enableAutomaticPings : removed call to io/javalin/websocket/WsAutomaticPingKt::enableAutomaticPings &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        enableAutomaticPings(this, interval, unit, applicationData)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Disables automatic pings */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun disableAutomaticPings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_70'>1</a>
+<span>
+
+1. disableAutomaticPings : removed call to io/javalin/websocket/WsAutomaticPingKt::disableAutomaticPings &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        disableAutomaticPings(this)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns the full query [String], or null if no query is present */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_74'>1</a>
+<span>
+
+1. queryString : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::queryString &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun queryString(): String? = upgradeCtx.queryString()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns a [Map] of all the query parameters */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_77'>1</a>
+<span>
+
+1. queryParamMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::queryParamMap &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun queryParamMap(): Map&#60;String, List&#60;String&#62;&#62; = upgradeCtx.queryParamMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns a [List] of all the query parameters for the given key, or an empty [List] if no such parameter exists */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_80'>1</a>
+<span>
+
+1. queryParams : replaced return value with Collections.emptyList for io/javalin/websocket/WsContext::queryParams &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun queryParams(key: String): List&#60;String&#62; = upgradeCtx.queryParams(key)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns the first query parameter for the given key, or null if no such parameter exists */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_83'>1</a>
+<span>
+
+1. queryParam : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::queryParam &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun queryParam(key: String): String? = upgradeCtx.queryParam(key)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Creates a typed [io.javalin.validation.Validator] for the [queryParam] value */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    fun &#60;T&#62; queryParamAsClass(key: String, clazz: Class&#60;T&#62;) = upgradeCtx.queryParamAsClass(key, clazz)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Reified version of [queryParamAsClass] (Kotlin only) */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    inline fun &#60;reified T : Any&#62; queryParamAsClass(key: String) = queryParamAsClass(key, T::class.java)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns a [Map] of all the path parameters */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_92'>1</a>
+<span>
+
+1. pathParamMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::pathParamMap &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun pathParamMap(): Map&#60;String, String&#62; = upgradeCtx.pathParamMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns a [String] of the session id */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_95'>1</a>
+<span>
+
+1. sessionId : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::sessionId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun sessionId(): String = sessionId</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns a path param by name (ex: pathParam(&#34;param&#34;)).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Ex: If the handler path is /users/{user-id}, and a browser GETs /users/123, pathParam(&#34;user-id&#34;) will return &#34;123&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_101'>1</a>
+<span>
+
+1. pathParam : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::pathParam &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun pathParam(key: String): String = upgradeCtx.pathParam(key)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Creates a typed [io.javalin.validation.Validator] for the [pathParam] value */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    fun &#60;T&#62; pathParamAsClass(key: String, clazz: Class&#60;T&#62;) = upgradeCtx.pathParamAsClass(key, clazz)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Reified version of [pathParamAsClass] (Kotlin only) */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    inline fun &#60;reified T : Any&#62; pathParamAsClass(key: String) = pathParamAsClass(key, T::class.java)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Returns the host as a [String] */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_110'/>
+110
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_110'>2</a>
+<span>
+
+1. host : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. host : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::host &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun host(): String = session.jettyUpgradeRequest.host // why can&#39;t we get this from upgradeCtx?</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a request header by name, or null. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_113'>1</a>
+<span>
+
+1. header : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::header &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun header(header: String): String? = upgradeCtx.header(header)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a [Map] with all the header keys and values  */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_116'/>
+116
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_116'>1</a>
+<span>
+
+1. headerMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::headerMap &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun headerMap(): Map&#60;String, String&#62; = upgradeCtx.headerMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Creates a typed [io.javalin.validation.Validator] for the [header] value */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    fun &#60;T&#62; headerAsClass(header: String, clazz: Class&#60;T&#62;) = upgradeCtx.headerAsClass(header, clazz)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a request cookie by name, or null. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_122'>1</a>
+<span>
+
+1. cookie : replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::cookie &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun cookie(name: String) = upgradeCtx.cookie(name)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a [Map] with all the request cookies */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_125'>1</a>
+<span>
+
+1. cookieMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::cookieMap &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun cookieMap(): Map&#60;String, String&#62; = upgradeCtx.cookieMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Sets an attribute on the request. Attributes are available to other handlers in the request lifecycle. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_128'/>
+128
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_128'>1</a>
+<span>
+
+1. attribute : removed call to io/javalin/http/Context::attribute &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun attribute(key: String, value: Any?) = upgradeCtx.attribute(key, value)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets the specified attribute from the request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_131'/>
+131
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_131'>1</a>
+<span>
+
+1. attribute : replaced return value with null for io/javalin/websocket/WsContext::attribute &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun &#60;T&#62; attribute(key: String): T? = upgradeCtx.attribute(key)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a [Map] with all the attribute keys and values on the request */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_134'>1</a>
+<span>
+
+1. attributeMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::attributeMap &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun attributeMap(): Map&#60;String, Any?&#62; = upgradeCtx.attributeMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a session attribute by name */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Suppress(&#34;UNCHECKED_CAST&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_138'/>
+138
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_138'>1</a>
+<span>
+
+1. sessionAttribute : replaced return value with null for io/javalin/websocket/WsContext::sessionAttribute &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun &#60;T&#62; sessionAttribute(key: String): T? = sessionAttributeMap()[key] as T</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Gets a [Map] with all the session attributes */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_141'>2</a>
+<span>
+
+1. sessionAttributeMap : replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::sessionAttributeMap &rarr; KILLED<br/>
+
+2. sessionAttributeMap : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun sessionAttributeMap(): Map&#60;String, Any?&#62; = sessionAttributes ?: mapOf()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Close the session */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_144'>1</a>
+<span>
+
+1. closeSession : removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun closeSession(): Unit = session.close()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Close the session with a [CloseStatus] */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_147'/>
+147
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_147'>1</a>
+<span>
+
+1. closeSession : removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun closeSession(closeStatus: CloseStatus): Unit = session.close(closeStatus)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Close the session with a code and reason */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_150'/>
+150
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_150'>1</a>
+<span>
+
+1. closeSession : removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun closeSession(code: Int, reason: String?): Unit = session.close(code, reason)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Close the session with a [WsCloseStatus] */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JvmOverloads</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_154'/>
+154
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_154'>2</a>
+<span>
+
+1. closeSession : removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED<br/>
+
+2. closeSession : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun closeSession(closeStatus: WsCloseStatus, reason: String? = null): Unit = session.close(closeStatus.code, reason ?: closeStatus.message())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_156'/>
+156
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_156'>3</a>
+<span>
+
+1. equals : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED<br/>
+
+2. equals : replaced boolean return with false for io/javalin/websocket/WsContext::equals &rarr; KILLED<br/>
+
+3. equals : replaced boolean return with true for io/javalin/websocket/WsContext::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    override fun equals(other: Any?): Boolean = session == (other as WsContext).session</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_157'/>
+157
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_157'>1</a>
+<span>
+
+1. hashCode : replaced int return with 0 for io/javalin/websocket/WsContext::hashCode &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    override fun hashCode(): Int = session.hashCode()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class WsConnectContext(sessionId: String, session: Session) : WsContext(sessionId, session)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class WsErrorContext(sessionId: String, session: Session, private val error: Throwable?) : WsContext(sessionId, session) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Get the [Throwable] error that occurred */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_164'/>
+164
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_164'>1</a>
+<span>
+
+1. error : replaced return value with null for io/javalin/websocket/WsErrorContext::error &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun error(): Throwable? = error</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class WsCloseContext(sessionId: String, session: Session, private val statusCode: Int, private val reason: String?) : WsContext(sessionId, session) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The int status for why connection was closed */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_169'/>
+169
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_169'>1</a>
+<span>
+
+1. status : replaced int return with 0 for io/javalin/websocket/WsCloseContext::status &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun status(): Int = statusCode</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The enum status for why connection was closed */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    fun closeStatus(): WsCloseStatus = WsCloseStatus.forStatusCode(statusCode)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The reason for the close */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_175'/>
+175
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_175'>1</a>
+<span>
+
+1. reason : replaced return value with &#34;&#34; for io/javalin/websocket/WsCloseContext::reason &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun reason(): String? = reason</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class WsBinaryMessageContext(sessionId: String, session: Session, private val data: ByteArray, private val offset: Int, private val length: Int) : WsContext(sessionId, session) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Get the binary data of the message */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    fun data(): ByteArray = data</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Get the offset of the binary data */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_183'/>
+183
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_183'>1</a>
+<span>
+
+1. offset : replaced int return with 0 for io/javalin/websocket/WsBinaryMessageContext::offset &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun offset(): Int = offset</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Get the length of the binary data */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_186'/>
+186
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_186'>1</a>
+<span>
+
+1. length : replaced int return with 0 for io/javalin/websocket/WsBinaryMessageContext::length &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun length(): Int = length</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class WsMessageContext(sessionId: String, session: Session, private val message: String) : WsContext(sessionId, session) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Receive a string message from the client */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_191'/>
+191
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_191'>1</a>
+<span>
+
+1. message : replaced return value with &#34;&#34; for io/javalin/websocket/WsMessageContext::message &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun message(): String = message</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Receive a message from the client as a class */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_194'/>
+194
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_194'>1</a>
+<span>
+
+1. messageAsClass : replaced return value with null for io/javalin/websocket/WsMessageContext::messageAsClass &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    fun &#60;T&#62; messageAsClass(type: Type): T = upgradeCtx.jsonMapper().fromJsonString(message, type)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** See Also: [messageAsClass] */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_197'/>
+197
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_197'>1</a>
+<span>
+
+1. messageAsClass : replaced return value with null for io/javalin/websocket/WsMessageContext::messageAsClass &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    fun &#60;T&#62; messageAsClass(clazz: Class&#60;T&#62;): T = messageAsClass(type = clazz as Type)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Reified version of [messageAsClass] (Kotlin only) */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @OptIn(ExperimentalStdlibApi::class)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    inline fun &#60;reified T : Any&#62; messageAsClass(): T = messageAsClass(typeOf&#60;T&#62;().javaType)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1fbde260_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_29'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext$upgradeCtx$2,-method=invoke,-methodDesc=()Lio/javalin/http/Context;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext$upgradeCtx$2,-method=invoke,-methodDesc=()Lio/javalin/http/Context;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext$upgradeCtx$2,-method=invoke,-methodDesc=()Lio/javalin/http/Context;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and path-params case sensitive works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:web socket logging works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSessionAttributes<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::getSessionAttributes &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext$sessionAttributes$2::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>matchedPath<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::matchedPath &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>send<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</span></span> removed call to io/javalin/websocket/WsContext::sendAsClass &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sendAsClass<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</span></span> removed call to io/javalin/websocket/WsContext::send &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>send<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()]</span></span> removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_51'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>send<br/><b>Killed by : </b>none</span></span> removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendBytes &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sendPing<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</span></span> removed call to org/eclipse/jetty/websocket/api/RemoteEndpoint::sendPing &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sendPing<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_59'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>enableAutomaticPings<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsContext::enableAutomaticPings &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>enableAutomaticPings<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</span></span> removed call to io/javalin/websocket/WsAutomaticPingKt::enableAutomaticPings &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disableAutomaticPings<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()]</span></span> removed call to io/javalin/websocket/WsAutomaticPingKt::disableAutomaticPings &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_74'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>queryString<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::queryString &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryString,-methodDesc=()Ljava/lang/String;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryString,-methodDesc=()Ljava/lang/String;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryString,-methodDesc=()Ljava/lang/String;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_77'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>queryParamMap<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::queryParamMap &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=queryParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>queryParams<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()]</span></span> replaced return value with Collections.emptyList for io/javalin/websocket/WsContext::queryParams &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>queryParam<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::queryParam &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_92'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pathParamMap<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::pathParamMap &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=pathParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=pathParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=pathParamMap,-methodDesc=()Ljava/util/Map;],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sessionId<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:each connection receives a unique id()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::sessionId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pathParam<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::pathParam &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_110'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>host<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=host,-methodDesc=()Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=host,-methodDesc=()Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=host,-methodDesc=()Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>host<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::host &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>header<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::header &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_116'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>headerMap<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::headerMap &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cookie<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsContext::cookie &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cookieMap<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()]</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::cookieMap &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_128'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>attribute<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()]</span></span> removed call to io/javalin/http/Context::attribute &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_131'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>attribute<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()]</span></span> replaced return value with null for io/javalin/websocket/WsContext::attribute &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_134'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>attributeMap<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::attributeMap &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_138'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sessionAttribute<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> replaced return value with null for io/javalin/websocket/WsContext::sessionAttribute &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sessionAttributeMap<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> replaced return value with Collections.emptyMap for io/javalin/websocket/WsContext::sessionAttributeMap &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sessionAttributeMap<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>closeSession<br/><b>Killed by : </b>none</span></span> removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=()V],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=()V],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=()V],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_147'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>closeSession<br/><b>Killed by : </b>none</span></span> removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lorg/eclipse/jetty/websocket/api/CloseStatus;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lorg/eclipse/jetty/websocket/api/CloseStatus;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lorg/eclipse/jetty/websocket/api/CloseStatus;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_150'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>closeSession<br/><b>Killed by : </b>none</span></span> removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(ILjava/lang/String;)V],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(ILjava/lang/String;)V],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(ILjava/lang/String;)V],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_154'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>closeSession<br/><b>Killed by : </b>none</span></span> removed call to org/eclipse/jetty/websocket/api/Session::close &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>closeSession<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=closeSession,-methodDesc=(Lio/javalin/websocket/WsCloseStatus;Ljava/lang/String;)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_156'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[7],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()]</span></span> replaced boolean return with false for io/javalin/websocket/WsContext::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()]</span></span> replaced boolean return with true for io/javalin/websocket/WsContext::equals &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_157'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for io/javalin/websocket/WsContext::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=hashCode,-methodDesc=()I],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=hashCode,-methodDesc=()I],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsContext,-method=hashCode,-methodDesc=()I],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:binary messages()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:each connection receives a unique id()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBefore with path works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:mapped exceptions are handled()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:most specific exception handler handles exception()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:before handlers work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsBefore short circuits endpoint handler()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsAfter works for onConnect()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:multiple before and after handlers can be called()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and path-params case sensitive works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:after handlers work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsAfter is covered by wsException()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager accepts valid request()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade in full lifecycle()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:custom WebSocketServletFactory works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:unmapped exceptions are caught by default handler()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:web socket logging works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_164'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>error<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:custom WebSocketServletFactory works()]</span></span> replaced return value with null for io/javalin/websocket/WsErrorContext::error &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_169'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>status<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for io/javalin/websocket/WsCloseContext::status &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=status,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=status,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=status,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_175'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reason<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsCloseContext::reason &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=reason,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=reason,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.websocket.WsCloseContext,-method=reason,-methodDesc=()Ljava/lang/String;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_183'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>offset<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for io/javalin/websocket/WsBinaryMessageContext::offset &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_186'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>length<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for io/javalin/websocket/WsBinaryMessageContext::length &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_191'>191</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_191'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>message<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()]</span></span> replaced return value with &#34;&#34; for io/javalin/websocket/WsMessageContext::message &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_194'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>messageAsClass<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</span></span> replaced return value with null for io/javalin/websocket/WsMessageContext::messageAsClass &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1fbde260_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1fbde260_197'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>messageAsClass<br/><b>Killed by : </b>none</span></span> replaced return value with null for io/javalin/websocket/WsMessageContext::messageAsClass &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()] (50 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()] (58 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()] (79 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()] (32 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()] (38 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and path-params case sensitive works()] (23 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()] (19 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()] (37 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:web socket logging works()] (117 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()] (57 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()] (72 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()] (150 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:binary messages()] (37 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:each connection receives a unique id()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBefore with path works()] (18 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:mapped exceptions are handled()] (18 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:most specific exception handler handles exception()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:before handlers work()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsBefore short circuits endpoint handler()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsAfter works for onConnect()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:multiple before and after handlers can be called()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:after handlers work()] (28 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsAfter is covered by wsException()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager accepts valid request()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade in full lifecycle()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:custom WebSocketServletFactory works()] (40 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:unmapped exceptions are caught by default handler()] (49 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

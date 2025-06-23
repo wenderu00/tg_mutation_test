@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ErrorMapper.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.router.error</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Handler</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Header</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class ErrorMapper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_15'>2</a>
+<span>
+
+1. getStatusCode : replaced int return with 0 for io/javalin/router/error/ErrorMapper$MapperEntry::getStatusCode &rarr; KILLED<br/>
+
+2. getContentType : replaced return value with &#34;&#34; for io/javalin/router/error/ErrorMapper$MapperEntry::getContentType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    data class MapperEntry(val statusCode: Int, val contentType: String, val handler: Handler)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val errorHandlers = mutableSetOf&#60;MapperEntry&#62;()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun addHandler(statusCode: Int, contentType: String, handler: Handler) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        errorHandlers.add(MapperEntry(statusCode, contentType, handler))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun handle(statusCode: Int, ctx: Context) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        errorHandlers.asSequence()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_25'>2</a>
+<span>
+
+1. invoke : replaced Boolean return with True for io/javalin/router/error/ErrorMapper$handle$1::invoke &rarr; SURVIVED<br/>
+
+2. invoke : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            .filter { it.statusCode == statusCode }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_26'>3</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+2. invoke : negated conditional &rarr; KILLED<br/>
+
+3. invoke : replaced Boolean return with True for io/javalin/router/error/ErrorMapper$handle$2::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            .filter { it.contentType == &#34;*&#34; || ctx.contentTypeMatches(it.contentType) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_27'>1</a>
+<span>
+
+1. handle : removed call to io/javalin/http/Handler::handle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            .forEach { it.handler.handle(ctx) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun Context.contentTypeMatches(contentType: String): Boolean =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_31'>3</a>
+<span>
+
+1. contentTypeMatches : replaced boolean return with true for io/javalin/router/error/ErrorMapper::contentTypeMatches &rarr; KILLED<br/>
+
+2. contentTypeMatches : negated conditional &rarr; KILLED<br/>
+
+3. contentTypeMatches : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        header(Header.ACCEPT)?.contains(contentType, ignoreCase = true) == true</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@480b9ad0_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@480b9ad0_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStatusCode<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> replaced int return with 0 for io/javalin/router/error/ErrorMapper$MapperEntry::getStatusCode &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getContentType<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/error/ErrorMapper$MapperEntry::getContentType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@480b9ad0_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_25'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for io/javalin/router/error/ErrorMapper$handle$1::invoke &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.error.ErrorMapper$handle$1,-method=invoke,-methodDesc=(Lio/javalin/router/error/ErrorMapper$MapperEntry;)Ljava/lang/Boolean;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.error.ErrorMapper$handle$1,-method=invoke,-methodDesc=(Lio/javalin/router/error/ErrorMapper$MapperEntry;)Ljava/lang/Boolean;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.router.error.ErrorMapper$handle$1,-method=invoke,-methodDesc=(Lio/javalin/router/error/ErrorMapper$MapperEntry;)Ljava/lang/Boolean;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper with content-type respects content-type()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for custom code 555()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper runs after exception-mapper()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()]</li> <li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:error-handlers run after future is resolved()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper can throw exceptions()]</li> <li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()]</li> <li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:can override timeout with custom error message()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@480b9ad0_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> replaced Boolean return with True for io/javalin/router/error/ErrorMapper$handle$2::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@480b9ad0_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> removed call to io/javalin/http/Handler::handle &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@480b9ad0_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@480b9ad0_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>contentTypeMatches<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> replaced boolean return with true for io/javalin/router/error/ErrorMapper::contentTypeMatches &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>contentTypeMatches<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>contentTypeMatches<br/><b>Killed by : </b>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()] (18 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper with content-type respects content-type()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for custom code 555()] (14 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper runs after exception-mapper()] (18 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()] (16 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:error-handlers run after future is resolved()] (27 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper can throw exceptions()] (29 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:can override timeout with custom error message()] (23 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

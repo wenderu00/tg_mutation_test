@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>VueStateRenderer.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.vue</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.json.toJsonString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.vue.JavalinVueConfig.Companion.VueConfigKey</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.eclipse.jetty.util.URIUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>internal object VueStateRenderer {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun getState(ctx: Context, state: Any?): String {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val cfg = ctx.appData(VueConfigKey)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fun urlEncodedState(state: Any?): String = ctx.jsonMapper()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .toJsonString(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                mapOf(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    &#34;pathParams&#34; to ctx.pathParamMap(),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_15'>1</a>
+<span>
+
+1. getState$urlEncodedState : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    &#34;state&#34; to (state ?: cfg.stateFunction(ctx))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                )</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            )</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_18'/>
+18
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_18'>2</a>
+<span>
+
+1. getState$urlEncodedState : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. getState$urlEncodedState : replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::getState$urlEncodedState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            .urlEncodeForJavascript()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_20'>1</a>
+<span>
+
+1. getState : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        val prototypeOrGlobalConfig = if (cfg.vueInstanceNameInJs != null) &#34;${cfg.vueInstanceNameInJs}.config.globalProperties&#34; else &#34;Vue.prototype&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_21'>1</a>
+<span>
+
+1. getState : replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::getState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;&#34;&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#60;script nonce=&#34;@internalAddNonce&#34;&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                window.JavalinVue = JSON.parse(decodeURIComponent(&#39;${urlEncodedState(state)}&#39;))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                $prototypeOrGlobalConfig.${&#39;$&#39;}javalin = window.JavalinVue</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#60;/script&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#34;&#34;&#34;.trimIndent()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Unfortunately, Java&#39;s URLEncoder#encode is slightly different from JavaScript&#39;s encodeURIComponent.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Luckily, Jetty has a util which works exactly the same.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_31'>1</a>
+<span>
+
+1. urlEncodeForJavascript : replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::urlEncodeForJavascript &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun String.urlEncodeForJavascript() = URIUtil.encodePath(this)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getState$urlEncodedState<br/><b>Killed by : </b>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getState$urlEncodedState<br/><b>Killed by : </b>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</span></span> replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::getState$urlEncodedState &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getState$urlEncodedState<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState$urlEncodedState,-methodDesc=(Lio/javalin/http/Context;Lio/javalin/vue/JavalinVueConfig;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState$urlEncodedState,-methodDesc=(Lio/javalin/http/Context;Lio/javalin/vue/JavalinVueConfig;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState$urlEncodedState,-methodDesc=(Lio/javalin/http/Context;Lio/javalin/vue/JavalinVueConfig;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_20'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getState<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState,-methodDesc=(Lio/javalin/http/Context;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState,-methodDesc=(Lio/javalin/http/Context;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.vue.VueStateRenderer,-method=getState,-methodDesc=(Lio/javalin/http/Context;Ljava/lang/Object;)Ljava/lang/String;],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getState<br/><b>Killed by : </b>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</span></span> replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::getState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d6e1cbf_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>urlEncodeForJavascript<br/><b>Killed by : </b>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</span></span> replaced return value with &#34;&#34; for io/javalin/vue/VueStateRenderer::urlEncodeForJavascript &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()] (24 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()] (32 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()] (31 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()] (33 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()] (37 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ReflectionUtil.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.util</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>internal val Any.kotlinFieldName // this is most likely a very stupid solution</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_4'/>
+4
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_4'>3</a>
+<span>
+
+1. getKotlinFieldName : replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getKotlinFieldName &rarr; NO_COVERAGE<br/>
+
+2. getKotlinFieldName : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. getKotlinFieldName : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    get() = this.javaClass.toString().removePrefix(this.parentClass.toString() + &#34;$&#34;).takeWhile { it != &#39;$&#39; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>internal val Any.javaFieldName: String?</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    get() = try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_8'/>
+8
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_8'>7</a>
+<span>
+
+1. getJavaFieldName : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. getJavaFieldName : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. getJavaFieldName : removed call to java/lang/reflect/Field::setAccessible &rarr; KILLED<br/>
+
+4. getJavaFieldName : negated conditional &rarr; KILLED<br/>
+
+5. getJavaFieldName : negated conditional &rarr; KILLED<br/>
+
+6. getJavaFieldName : negated conditional &rarr; KILLED<br/>
+
+7. getJavaFieldName : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        parentClass.declaredFields.find { it.isAccessible = true; it.get(it) == this }?.name</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    } catch (ignored: Exception) { // Nothing really matters.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        null</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_11'>1</a>
+<span>
+
+1. getJavaFieldName : replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getJavaFieldName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_13'/>
+13
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_13'>3</a>
+<span>
+
+1. getParentClass : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. getParentClass : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+3. getParentClass : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>internal val Any.parentClass: Class&#60;*&#62; get() = Class.forName(this.javaClass.name.takeWhile { it != &#39;$&#39; }, false, this.javaClass.classLoader)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_15'>1</a>
+<span>
+
+1. getImplementingClassName : replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getImplementingClassName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>internal val Any.implementingClassName: String? get() = this.javaClass.name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_17'>2</a>
+<span>
+
+1. isClass : replaced boolean return with false for io/javalin/util/ReflectionUtilKt::isClass &rarr; SURVIVED<br/>
+
+2. isClass : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isClass &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>internal val Any.isClass: Boolean get() = this is Class&#60;*&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_19'>2</a>
+<span>
+
+1. isKotlinAnonymousLambda : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinAnonymousLambda &rarr; KILLED<br/>
+
+2. isKotlinAnonymousLambda : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>internal val Any.isKotlinAnonymousLambda: Boolean get() = this.javaClass.enclosingMethod != null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_21'>5</a>
+<span>
+
+1. isKotlinMethodReference : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. isKotlinMethodReference : negated conditional &rarr; KILLED<br/>
+
+3. isKotlinMethodReference : negated conditional &rarr; KILLED<br/>
+
+4. isKotlinMethodReference : negated conditional &rarr; KILLED<br/>
+
+5. isKotlinMethodReference : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinMethodReference &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>internal val Any.isKotlinMethodReference: Boolean get() = this.javaClass.declaredFields.count { it.name == &#34;function&#34; || it.name == &#34;\$tmp0&#34; } == 1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_23'/>
+23
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_23'>2</a>
+<span>
+
+1. isKotlinField : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. isKotlinField : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinField &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>internal val Any.isKotlinField: Boolean get() = this.javaClass.fields.any { it.name == &#34;INSTANCE&#34; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_25'>2</a>
+<span>
+
+1. isJavaAnonymousLambda : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isJavaAnonymousLambda &rarr; KILLED<br/>
+
+2. isJavaAnonymousLambda : replaced boolean return with false for io/javalin/util/ReflectionUtilKt::isJavaAnonymousLambda &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>internal val Any.isJavaAnonymousLambda: Boolean get() = this.javaClass.isSynthetic</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_27'>2</a>
+<span>
+
+1. isJavaField : negated conditional &rarr; KILLED<br/>
+
+2. isJavaField : replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isJavaField &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>internal val Any.isJavaField: Boolean get() = this.javaFieldName != null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61e45f16_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_29'>2</a>
+<span>
+
+1. runMethod : removed call to java/lang/reflect/Method::setAccessible &rarr; NO_COVERAGE<br/>
+
+2. runMethod : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>internal fun Any.runMethod(name: String): Any = this.javaClass.getMethod(name).apply { isAccessible = true }.invoke(this)</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_4'>4</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_4'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getKotlinFieldName &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_8'>8</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_8'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> removed call to java/lang/reflect/Field::setAccessible &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getJavaFieldName,-methodDesc=(Ljava/lang/Object;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getJavaFieldName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getJavaFieldName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_13'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getImplementingClassName<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</span></span> replaced return value with &#34;&#34; for io/javalin/util/ReflectionUtilKt::getImplementingClassName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_17'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isClass<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for io/javalin/util/ReflectionUtilKt::isClass &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isClass,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isClass,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isClass,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isClass<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isClass &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKotlinAnonymousLambda<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinAnonymousLambda &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKotlinAnonymousLambda<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinMethodReference,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinMethodReference,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinMethodReference,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinMethodReference &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_23'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isKotlinField &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isJavaAnonymousLambda<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isJavaAnonymousLambda &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isJavaAnonymousLambda<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</span></span> replaced boolean return with false for io/javalin/util/ReflectionUtilKt::isJavaAnonymousLambda &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isJavaField<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isJavaField<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</span></span> replaced boolean return with true for io/javalin/util/ReflectionUtilKt::isJavaField &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_29'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>runMethod<br/><b>Killed by : </b>none</span></span> removed call to java/lang/reflect/Method::setAccessible &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>runMethod<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_31'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_32'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_33'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKotlinFieldName<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_37'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_39'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParentClass<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=getParentClass,-methodDesc=(Ljava/lang/Object;)Ljava/lang/Class;],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isKotlinMethodReference<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61e45f16_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61e45f16_45'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isKotlinField<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.util.ReflectionUtilKt,-method=isKotlinField,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()]</li> <li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:lambda works()] (0 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:field_works()] (0 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:class works()] (0 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:method reference works()] (2 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInKotlin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInKotlin]/[method:field works()] (1 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:class_works()] (1 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewInJava.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewInJava]/[method:lambda_works()] (4 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#mount()] (19 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added after server start()] (24 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added through router#apibuilder()] (21 ms)</li><li>io.javalin.routeoverview.TestRouteOverviewPlugin.[engine:junit-jupiter]/[class:io.javalin.routeoverview.TestRouteOverviewPlugin]/[method:exposes routes added before server start()] (28 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

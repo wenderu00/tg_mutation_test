@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>HttpResponseExceptionMapper.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.router.exception</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.BadGatewayResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.BadRequestResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ConflictResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ContentType</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ContentType.APPLICATION_JSON</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ContentType.TEXT_PLAIN</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ForbiddenResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.GatewayTimeoutResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.GoneResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Header</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.HttpResponseException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.InternalServerErrorResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.MethodNotAllowedResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.NotFoundResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.RedirectResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.ServiceUnavailableResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.UnauthorizedResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.util.JsonEscapeUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>object HttpResponseExceptionMapper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    fun handle(e: HttpResponseException, ctx: Context) = when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_33'>4</a>
+<span>
+
+1. handle : negated conditional &rarr; KILLED<br/>
+
+2. handle : negated conditional &rarr; KILLED<br/>
+
+3. handle : negated conditional &rarr; KILLED<br/>
+
+4. handle : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        ctx.header(Header.ACCEPT)?.contains(ContentType.HTML) == true || ctx.res().contentType == ContentType.HTML -&#62; ctx.status(e.status).result(plainResult(e)).contentType(TEXT_PLAIN)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_34'>4</a>
+<span>
+
+1. handle : negated conditional &rarr; KILLED<br/>
+
+2. handle : negated conditional &rarr; KILLED<br/>
+
+3. handle : negated conditional &rarr; KILLED<br/>
+
+4. handle : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        ctx.header(Header.ACCEPT)?.contains(ContentType.JSON) == true || ctx.res().contentType == ContentType.JSON -&#62; ctx.status(e.status).result(jsonResult(e)).contentType(APPLICATION_JSON)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        else -&#62; ctx.status(e.status).result(plainResult(e)).contentType(TEXT_PLAIN)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    internal fun jsonResult(e: HttpResponseException) =</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#34;&#34;&#34;|{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_40'>1</a>
+<span>
+
+1. jsonResult$javalin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>           |    &#34;title&#34;: &#34;${e.message?.jsonEscape()}&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |    &#34;status&#34;: ${e.status},</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_42'>2</a>
+<span>
+
+1. jsonResult$javalin : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. jsonResult$javalin : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>           |    &#34;type&#34;: &#34;${getTypeUrl(e).lowercase(Locale.ROOT)}&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |    &#34;details&#34;: {${e.details.map { &#34;&#34;&#34;&#34;${it.key}&#34;:&#34;${it.value.jsonEscape()}&#34;&#34;&#34;&#34; }.joinToString(&#34;,&#34;)}}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_44'>1</a>
+<span>
+
+1. jsonResult$javalin : replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::jsonResult$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>           |}&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun plainResult(e: HttpResponseException) =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_47'>1</a>
+<span>
+
+1. plainResult : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (e.details.isEmpty()) &#34;${e.message}&#34; else &#34;&#34;&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                |${e.message}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                |${e.details.map { &#34;\n${it.key}:\n${it.value}&#34; }.joinToString(&#34;&#34;)}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_50'>1</a>
+<span>
+
+1. plainResult : replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::plainResult &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                |&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private const val docsUrl = &#34;https://javalin.io/documentation#&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_53'>1</a>
+<span>
+
+1. classUrl : replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::classUrl &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun classUrl(e: HttpResponseException) = docsUrl + e.javaClass.simpleName</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // this could be removed by introducing a &#34;DefaultResponse&#34;, but I would</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // rather keep this ugly snippet than introduced another abstraction layer</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private fun getTypeUrl(e: HttpResponseException) = when (e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_58'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is RedirectResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_59'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is BadRequestResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_60'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is UnauthorizedResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_61'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is ForbiddenResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_62'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is NotFoundResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_63'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is MethodNotAllowedResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_64'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is ConflictResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_65'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is GoneResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_66'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is InternalServerErrorResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_67'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is ServiceUnavailableResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_68'/>
+68
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_68'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is BadGatewayResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_69'>1</a>
+<span>
+
+1. getTypeUrl : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is GatewayTimeoutResponse -&#62; classUrl(e)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        else -&#62; docsUrl + &#34;error-responses&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_71'>1</a>
+<span>
+
+1. getTypeUrl : replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::getTypeUrl &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_73'>1</a>
+<span>
+
+1. jsonEscape : replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::jsonEscape &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun String.jsonEscape() = JsonEscapeUtil.escape(this)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a8639bf_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>jsonResult$javalin<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_42'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>jsonResult$javalin<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()]</li> <li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()]</li> <li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()]</li> <li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:test all subclasses of HttpResponseException()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>jsonResult$javalin<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.router.exception.HttpResponseExceptionMapper,-method=jsonResult$javalin,-methodDesc=(Lio/javalin/http/HttpResponseException;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()]</li> <li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()]</li> <li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()]</li> <li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()]</li> <li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:test all subclasses of HttpResponseException()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>jsonResult$javalin<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::jsonResult$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>plainResult<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>plainResult<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::plainResult &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>classUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::classUrl &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_68'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeUrl<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::getTypeUrl &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>jsonEscape<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()]</span></span> replaced return value with &#34;&#34; for io/javalin/router/exception/HttpResponseExceptionMapper::jsonEscape &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_78'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>jsonResult$javalin<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a8639bf_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a8639bf_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>plainResult<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as text if client wants html or text()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding an event listener to the ServletContextHandler works()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for custom code 555()] (14 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()] (22 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:after-handlers execute after HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:unmapped exceptions are caught by default handler()] (16 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()] (15 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading too large request body does not work()] (18 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in before-handler works()] (14 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:Context#appData() throws if data does not exist()] (19 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()] (16 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in endpoint-handler works()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as text if client wants html or text()] (19 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override 404()] (13 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:completing exceptionally with HttpResponseExceptions in future works()] (15 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()] (17 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in future works()] (17 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()] (13 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default values work()] (23 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for POST if only before-handler present()] (17 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()] (18 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:urls are case sensitive()] (13 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can handle endpoint not found differently than regular 404()] (12 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins throw if they are not registered()] (24 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for GET if only before-handler present()] (16 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - exception()] (24 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before-handler can set header()] (15 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - logs()] (25 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all unmapped verbs return 404()] (18 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()] (16 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade can stop an upgrade request in progress()] (17 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after is after before()] (17 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:timed out futures are canceled()] (22 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:default timeout error isn't jetty branded()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:allowNullable throws if called after check()] (18 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler chain()] (36 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:unresolved future throws()] (27 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched can skip remaining handlers()] (17 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars not available if not enabled()] (23 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()] (21 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:error is handled as unexpected throwable()] (20 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have a wrapped handler collection()] (39 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:latest timed out future is canceled()] (24 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:can override timeout with custom error message()] (23 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:case sensitive urls work()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()] (23 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath doesn't crash for 404s()] (25 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes are not accepted when not enabled()] (25 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before- and after-handlers can set a bunch of headers()] (22 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard last works()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:before-handler runs before static resources()] (27 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParam throws for invalid param()] (33 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can throw exceptions like normal inside thenAccept()] (39 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:automatic slash prefixing works()] (19 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:unregistered converter fails()] (35 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for instance()] (30 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with wildcards()] (17 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched fires for head request on get handler()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:matchedPath returns the path used to match the request()] (28 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager doesn't crash on exception()] (24 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns simple 404 if there is no welcome file()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - totally different path leads to 404 without global headers()] (18 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with wildcards()] (21 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched and afterMatched work()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:no exceptions in logs when getting hosted path()] (31 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:urlPathPrefix filters requests to a specific subfolder()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:only handle resources matching the filter()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal Javalin serves files but serves directory if it is a directory()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching angle brackets in beforeMatched but no matching http handler leads to 404()] (24 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching sub curly in beforeMatched but no matching http handler leads to 404()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur()] (29 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()] (62 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for external location()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()] (44 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for passing static config()] (37 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for classPath location()] (38 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:one app can handle multiple static file locations()] (62 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder crud()] (60 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with encoded names with encoded url()] (78 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for multiple location()] (54 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()] (96 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 with ssl and ALPN()] (293 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()] (13 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()] (18 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()] (15 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:test all subclasses of HttpResponseException()] (24 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()] (22 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()] (16 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()] (24 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()] (43 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>WsAutomaticPing.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.websocket</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.ConcurrencyUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.javalinLazy</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.ByteBuffer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.ConcurrentHashMap</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.ScheduledExecutorService</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.ScheduledFuture</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.TimeUnit</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>val executor: ScheduledExecutorService by javalinLazy { ConcurrencyUtil.newSingleThreadScheduledExecutor(&#34;JavalinWebSocketPingThread&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>val pingFutures: ConcurrentHashMap&#60;WsContext, ScheduledFuture&#60;*&#62;?&#62; by javalinLazy { ConcurrentHashMap() }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>fun enableAutomaticPings(ctx: WsContext, interval: Long, unit: TimeUnit, applicationData: ByteBuffer?) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    synchronized(ctx) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_16'>1</a>
+<span>
+
+1. enableAutomaticPings : removed call to io/javalin/websocket/WsAutomaticPingKt::disableAutomaticPings &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        disableAutomaticPings(ctx);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pingFutures[ctx] = executor.scheduleAtFixedRate({</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_18'>1</a>
+<span>
+
+1. enableAutomaticPings$lambda$1$lambda$0 : removed call to io/javalin/websocket/WsContext::sendPing &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            ctx.sendPing(applicationData)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }, interval, interval, unit)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>fun disableAutomaticPings(ctx: WsContext) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    synchronized(ctx) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_25'>1</a>
+<span>
+
+1. disableAutomaticPings : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        pingFutures[ctx]?.cancel(false)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pingFutures.remove(ctx);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>enableAutomaticPings<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()]</span></span> removed call to io/javalin/websocket/WsAutomaticPingKt::disableAutomaticPings &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>enableAutomaticPings$lambda$1$lambda$0<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</span></span> removed call to io/javalin/websocket/WsContext::sendPing &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67e7dfbf_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67e7dfbf_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disableAutomaticPings<br/><b>Killed by : </b>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket enableAutomaticPings() works()] (72 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket disableAutomaticPings() works()] (150 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:binary messages()] (37 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:each connection receives a unique id()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and pathParams work()] (38 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBefore with path works()] (18 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:mapped exceptions are handled()] (18 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:most specific exception handler handles exception()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:headers and host are available in session()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:before handlers work()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsBefore short circuits endpoint handler()] (20 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:queryParamMap does not throw()] (25 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsAfter works for onConnect()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:multiple before and after handlers can be called()] (22 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works in all handlers()] (19 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:routing and path-params case sensitive works()] (23 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:set attributes works()] (32 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:after handlers work()] (28 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsAfter is covered by wsException()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager accepts valid request()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade in full lifecycle()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:cookies work()] (37 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:custom WebSocketServletFactory works()] (40 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:extracting path information works()] (27 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:general integration test()] (57 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:unmapped exceptions are caught by default handler()] (49 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()] (50 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:getting session attributes works()] (58 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:websocket closeSession() methods()] (79 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:web socket logging works()] (117 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

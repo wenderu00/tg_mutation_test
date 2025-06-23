@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>HttpStatus.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/** HTTP response status codes indicating whether a specific HTTP request has been successfully completed. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_4'/>
+4
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_4'>2</a>
+<span>
+
+1. getMessage : replaced return value with &#34;&#34; for io/javalin/http/HttpStatus::getMessage &rarr; KILLED<br/>
+
+2. getCode : replaced int return with 0 for io/javalin/http/HttpStatus::getCode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>enum class HttpStatus(val code: Int, val message: String) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This interim response indicates that the client should continue the request or ignore the response if the request is already finished. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONTINUE(100, &#34;Continue&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This code is sent in response to an Upgrade request header from the client and indicates the protocol the server is switching to. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SWITCHING_PROTOCOLS(101, &#34;Switching Protocols&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This code indicates that the server has received and is processing the request, but no response is available yet. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PROCESSING(102, &#34;Processing&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response or preconnect to an origin from which the page will need resources.*/</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EARLY_HINTS(103, &#34;Early Hints&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request succeeded. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OK(200, &#34;OK&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CREATED(201, &#34;Created&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request has been received but not yet acted upon. It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ACCEPTED(202, &#34;Accepted&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response code means the returned metadata is not exactly the same as is available from the origin server, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the 200 OK response is preferred to this status. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NON_AUTHORITATIVE_INFORMATION(203, &#34;Non Authoritative Information&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** There is no content to send for this request, but the headers may be useful. The user agent may update its cached headers for this resource with the new ones.*/</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NO_CONTENT(204, &#34;No Content&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Tells the user agent to reset the document which sent this request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    RESET_CONTENT(205, &#34;Reset Content&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response code is used when the Range header is sent from the client to request only part of a resource. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PARTIAL_CONTENT(206, &#34;Partial Content&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Conveys information about multiple resources, for situations where multiple status codes might be appropriate. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MULTI_STATUS(207, &#34;Multi-Status&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Used inside a &#60;dav:propstat&#62; response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ALREADY_REPORTED(208, &#34;Already Reported&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IM_USED(226, &#34;IM Used&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request has more than one possible response. The user agent or user should choose one of them. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MULTIPLE_CHOICES(300, &#34;Multiple Choices&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The URL of the requested resource has been changed permanently. The new URL is given in the response. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MOVED_PERMANENTLY(301, &#34;Moved Permanently&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    FOUND(302, &#34;Found&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server sent this response to direct the client to get the requested resource at another URI with a GET request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SEE_OTHER(303, &#34;See Other&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This is used for caching purposes. It tells the client that the response has not been modified, so the client can continue to use the same cached version of the response. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NOT_MODIFIED(304, &#34;Not Modified&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    @Deprecated(&#34;It has been deprecated due to security concerns regarding in-band configuration of a proxy.&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    USE_PROXY(305, &#34;Use Proxy&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request.  */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TEMPORARY_REDIRECT(307, &#34;Temporary Redirect&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PERMANENT_REDIRECT(308, &#34;Permanent Redirect&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BAD_REQUEST(400, &#34;Bad Request&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Although the HTTP standard specifies &#34;unauthorized&#34;, semantically this response means &#34;unauthenticated&#34;. That is, the client must authenticate itself to get the requested response. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UNAUTHORIZED(401, &#34;Unauthorized&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PAYMENT_REQUIRED(402, &#34;Payment Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client&#39;s identity is known to the server. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    FORBIDDEN(403, &#34;Forbidden&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server cannot find the requested resource. In the browser, this means the URL is not recognized.  */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NOT_FOUND(404, &#34;Not Found&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    METHOD_NOT_ALLOWED(405, &#34;Method Not Allowed&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response is sent when the web server, after performing server-driven content negotiation, doesn&#39;t find any content that conforms to the criteria given by the user agent. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NOT_ACCEPTABLE(406, &#34;Not Acceptable&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This is similar to `401 Unauthorized` but authentication is needed to be done by a proxy. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PROXY_AUTHENTICATION_REQUIRED(407, &#34;Proxy Authentication Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    REQUEST_TIMEOUT(408, &#34;Request Timeout&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response is sent when a request conflicts with the current state of the server. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONFLICT(409, &#34;Conflict&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response is sent when the requested content has been permanently deleted from server, with no forwarding address. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    GONE(410, &#34;Gone&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Server rejected the request because the Content-Length header field is not defined and the server requires it. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LENGTH_REQUIRED(411, &#34;Length Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The client has indicated preconditions in its headers which the server does not meet. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRECONDITION_FAILED(412, &#34;Precondition Failed&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Request entity is larger than limits defined by server. The server might close the connection or return an Retry-After header field.  */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONTENT_TOO_LARGE(413, &#34;Content Too Large&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The URI requested by the client is longer than the server is willing to interpret. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    URI_TOO_LONG(414, &#34;URI Too Long&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The media format of the requested data is not supported by the server, so the server is rejecting the request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UNSUPPORTED_MEDIA_TYPE(415, &#34;Unsupported Media Type&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The range specified by the Range header field in the request cannot be fulfilled. It&#39;s possible that the range is outside the size of the target URI&#39;s data. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    RANGE_NOT_SATISFIABLE(416, &#34;Range Not Satisfiable&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This response code means the expectation indicated by the Expect request header field cannot be met by the server. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXPECTATION_FAILED(417, &#34;Expectation Failed&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server refuses the attempt to brew coffee with a teapot. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IM_A_TEAPOT(418, &#34;I&#39;m a Teapot&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Unofficial status code, used in Twitter API to indicate that the client is being rate limited for making too many requests.  */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ENHANCE_YOUR_CALM(420, &#34;Enhance your Calm&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MISDIRECTED_REQUEST(421, &#34;Misdirected Request&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request was well-formed but was unable to be followed due to semantic errors. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UNPROCESSABLE_CONTENT(422, &#34;Unprocessable Content&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The resource that is being accessed is locked, meaning it can&#39;t be accessed. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOCKED(423, &#34;Locked&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request failed due to failure of a previous request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    FAILED_DEPENDENCY(424, &#34;Failed Dependency&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Indicates that the server is unwilling to risk processing a request that might be replayed. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TOO_EARLY(425, &#34;Too Early&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UPGRADE_REQUIRED(426, &#34;Upgrade Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The origin server requires the request to be conditional. This response is intended to prevent the &#39;lost update&#39; problem, where a client GETs a resource&#39;s state, modifies it and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRECONDITION_REQUIRED(428, &#34;Precondition Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The user has sent too many requests in a given amount of time (&#34;rate limiting&#34;). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TOO_MANY_REQUESTS(429, &#34;Too Many Requests&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server is unwilling to process the request because its header fields are too large. The request may be resubmitted after reducing the size of the request header fields. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    REQUEST_HEADER_FIELDS_TOO_LARGE(431, &#34;Request Header Fields Too Large&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The user agent requested a resource that cannot legally be provided, such as a web page censored by a government. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UNAVAILABLE_FOR_LEGAL_REASONS(451, &#34;Unavailable for Legal Reason&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The client has closed the connection prematurely, before the server could deliver a response. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CLIENT_CLOSED_REQUEST(499, &#34;Client Closed Request&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server has encountered a situation it does not know how to handle. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    INTERNAL_SERVER_ERROR(500, &#34;Server Error&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NOT_IMPLEMENTED(501, &#34;Not Implemented&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BAD_GATEWAY(502, &#34;Bad Gateway&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SERVICE_UNAVAILABLE(503, &#34;Service Unavailable&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** This error response is given when the server is acting as a gateway and cannot get a response in time. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    GATEWAY_TIMEOUT(504, &#34;Gateway Timeout&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The HTTP version used in the request is not supported by the server. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HTTP_VERSION_NOT_SUPPORTED(505, &#34;HTTP Version Not Supported&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    INSUFFICIENT_STORAGE(507, &#34;Insufficient Storage&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The server detected an infinite loop while processing the request. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOOP_DETECTED(508, &#34;Loop Detected&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Indicates that the client needs to authenticate to gain network access. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NETWORK_AUTHENTICATION_REQUIRED(511, &#34;Network Authentication Required&#34;),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** An unknown status code */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UNKNOWN(-1, &#34;Unknown HTTP code&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code is informational: the request was received, continuing process */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_138'/>
+138
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_138'>5</a>
+<span>
+
+1. isInformational : replaced boolean return with true for io/javalin/http/HttpStatus::isInformational &rarr; SURVIVED<br/>
+
+2. isInformational : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. isInformational : negated conditional &rarr; KILLED<br/>
+
+4. isInformational : changed conditional boundary &rarr; KILLED<br/>
+
+5. isInformational : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isInformational(): Boolean = code in 100..199</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code indicates success: the request was successfully received, understood, and accepted */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_140'/>
+140
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_140'>5</a>
+<span>
+
+1. isSuccess : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isSuccess : replaced boolean return with true for io/javalin/http/HttpStatus::isSuccess &rarr; SURVIVED<br/>
+
+3. isSuccess : negated conditional &rarr; KILLED<br/>
+
+4. isSuccess : changed conditional boundary &rarr; KILLED<br/>
+
+5. isSuccess : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isSuccess(): Boolean = code in 200..299</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code indicates a redirection: further action needs to be taken in order to complete the request */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_142'/>
+142
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_142'>5</a>
+<span>
+
+1. isRedirection : replaced boolean return with true for io/javalin/http/HttpStatus::isRedirection &rarr; SURVIVED<br/>
+
+2. isRedirection : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. isRedirection : negated conditional &rarr; KILLED<br/>
+
+4. isRedirection : changed conditional boundary &rarr; KILLED<br/>
+
+5. isRedirection : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isRedirection(): Boolean = code in 300..399</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code indicates a client error: the request contains bad syntax or cannot be fulfilled */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_144'>5</a>
+<span>
+
+1. isClientError : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isClientError : replaced boolean return with true for io/javalin/http/HttpStatus::isClientError &rarr; SURVIVED<br/>
+
+3. isClientError : negated conditional &rarr; KILLED<br/>
+
+4. isClientError : changed conditional boundary &rarr; KILLED<br/>
+
+5. isClientError : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isClientError(): Boolean = code in 400..499</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code indicates a server error: the server failed to fulfil an apparently valid request*/</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_146'/>
+146
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_146'>5</a>
+<span>
+
+1. isServerError : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isServerError : replaced boolean return with true for io/javalin/http/HttpStatus::isServerError &rarr; SURVIVED<br/>
+
+3. isServerError : changed conditional boundary &rarr; KILLED<br/>
+
+4. isServerError : negated conditional &rarr; KILLED<br/>
+
+5. isServerError : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isServerError(): Boolean = code in 500..599</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Checks if the status code indicates an error. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_148'/>
+148
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_148'>3</a>
+<span>
+
+1. isError : replaced boolean return with true for io/javalin/http/HttpStatus::isError &rarr; SURVIVED<br/>
+
+2. isError : negated conditional &rarr; KILLED<br/>
+
+3. isError : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    fun isError(): Boolean = isClientError() || isServerError()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_150'/>
+150
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_150'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for io/javalin/http/HttpStatus::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    override fun toString(): String = &#34;$code $message&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    companion object {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        private val statusMap = HttpStatus.entries.associateBy { it.code }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @JvmStatic</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_157'>1</a>
+<span>
+
+1. forStatus : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        fun forStatus(status: Int): HttpStatus = statusMap[status] ?: UNKNOWN</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adc1e48_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_4'>4</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_4'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMessage<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:http code provides formatted implementation of toString() method()]</span></span> replaced return value with &#34;&#34; for io/javalin/http/HttpStatus::getMessage &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getCode<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:http code provides formatted implementation of toString() method()]</span></span> replaced int return with 0 for io/javalin/http/HttpStatus::getCode &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_138'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInformational<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInformational<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInformational<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isInformational &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isInformational<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isInformational<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isInformational,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSuccess<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSuccess<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isSuccess<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isSuccess &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isSuccess,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isSuccess<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isSuccess<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isRedirection<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isRedirection<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isRedirection<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isRedirection<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isRedirection &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isRedirection<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isRedirection,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isClientError<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</li> <li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isClientError<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isClientError &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isClientError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</li> <li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isClientError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isClientError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isClientError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isServerError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isServerError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isServerError<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isServerError<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isServerError &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isServerError,-methodDesc=()Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isServerError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_148'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isError<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/http/HttpStatus::isError &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isError,-methodDesc=()Z],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isError,-methodDesc=()Z],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.HttpStatus,-method=isError,-methodDesc=()Z],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</li> <li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isError<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_150'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:http code provides formatted implementation of toString() method()]</span></span> replaced return value with &#34;&#34; for io/javalin/http/HttpStatus::toString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adc1e48_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adc1e48_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>forStatus<br/><b>Killed by : </b>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:fetching http codes by code outside of range should not throw errors()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isRedirection() should return true for redirection status codes()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isSuccess() should return true for success status codes()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isClientError() and isError() should return true for client error status codes()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isServerError() and isError() should return true for server error status codes()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:http code provides formatted implementation of toString() method()] (0 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()] (29 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()] (26 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()] (43 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty timeout exceptions are caught and handled as errors()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty eof exceptions are caught and handled as errors()] (15 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:can override HttpResponseExceptions()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:unmapped exceptions are caught by default handler()] (16 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in before-handler works()] (14 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading too large request body does not work()] (18 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()] (16 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:Context#appData() throws if data does not exist()] (19 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException subclass handler is used()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:completing exceptionally with HttpResponseExceptions in future works()] (15 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in future works()] (17 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()] (17 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()] (13 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default values work()] (23 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException handler is used for subclasses()] (16 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()] (18 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins throw if they are not registered()] (24 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - exception()] (24 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - logs()] (25 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()] (24 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()] (16 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade can stop an upgrade request in progress()] (17 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:timed out futures are canceled()] (22 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:default timeout error isn't jetty branded()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:allowNullable throws if called after check()] (18 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()] (15 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:General]/[method:unresolved future throws()] (27 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:error is handled as unexpected throwable()] (20 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:latest timed out future is canceled()] (24 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Timeouts]/[method:can override timeout with custom error message()] (23 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:test all subclasses of HttpResponseException()] (24 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsBefore short circuits endpoint handler()] (20 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParam throws for invalid param()] (33 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can throw exceptions like normal inside thenAccept()] (39 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()] (22 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:unregistered converter fails()] (35 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for instance()] (30 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:AccessManager doesn't crash on exception()] (24 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:throw in wsAfter is covered by wsException()] (30 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for external location()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()] (44 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for passing static config()] (37 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for classPath location()] (38 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder crud()] (60 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for multiple location()] (54 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()] (1096 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:isInformational() should return true for informational status codes()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:fetching http codes by code outside of range should not throw errors()] (0 ms)</li><li>io.javalin.http.HttpStatusCodeTest.[engine:junit-jupiter]/[class:io.javalin.http.HttpStatusCodeTest]/[method:fetching http codes by code should get the right code()] (0 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:HEAD returns 200 if GET is mapped()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:errors are handled by javaLangErrorHandler()] (16 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:default app does not set etags for GET()] (15 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:etags are not autogenerated for input stream response()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper throws error()] (17 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:custom ContextHandlerCollection works()] (19 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:manual etags overwrite autogenerated etags()] (16 ms)</li><li>io.javalin.TestEtags.[engine:junit-jupiter]/[class:io.javalin.TestEtags]/[method:autogenerated etags are added to GET request()] (14 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for NullableValidator()] (15 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value works()] (13 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the start are okay when multipleSlashes is enabled()] (18 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:type information of exception is not lost()] (14 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:router works with multi-level context-path()] (23 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:most specific exception handler handles exception()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:mapped exceptions are handled()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:setting a String result works()] (23 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes in the middle are okay when multipleSlashes is enabled()] (22 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes at the end are okay when multipleSlashes is enabled()] (22 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:router works with context-path()] (27 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - non audio and video downloading from start works()] (21 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all mapped verbs return 200()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()] (15 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()] (22 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:after-handlers execute after HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect with status works()] (25 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()] (15 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()] (20 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler supports custom handler()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in endpoint-handler works()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as text if client wants html or text()] (19 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override 404()] (13 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect to absolute path works()] (27 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()] (18 ms)</li><li>io.javalin.TestContextPath.[engine:junit-jupiter]/[class:io.javalin.TestContextPath]/[method:static-files work with context-path()] (27 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for POST if only before-handler present()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:urls are case sensitive()] (13 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can handle endpoint not found differently than regular 404()] (12 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for GET if only before-handler present()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video range works and input stream closed()] (25 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom treatment for ValidationException exception response works()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - non audio and video download resuming works()] (27 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all unmapped verbs return 404()] (18 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler chain()] (36 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - external()] (29 ms)</li><li>io.javalin.http.ContentTypeTest.[engine:junit-jupiter]/[class:io.javalin.http.ContentTypeTest]/[method:file should be served even if content type isn't set()] (16 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have a wrapped handler collection()] (39 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works with options endpoint mapping()] (16 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:exceptions that occur during response writing are handled()] (39 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving JS from classpath works()] (28 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes are not accepted when not enabled()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app start without previous static files()] (30 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving CSS from classpath works()] (32 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app creation()] (33 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:can add custom mimetype mappings()] (33 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving HTML from classpath works()] (34 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:non-lowercase path-params are not redirected()] (36 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:before-handler runs before static resources()] (27 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:pathless routes are handled properly()] (44 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()] (21 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:serving mjs from classpath works()] (38 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect static files - classpath()] (35 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with wildcards()] (17 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched fires for head request on get handler()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns simple 404 if there is no welcome file()] (26 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()] (34 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:static files can be added after app start with previous static files()] (43 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:welcome files work without trailing slashes on hosted path()] (45 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with wildcards()] (21 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns welcome file, when custom hostedPath matches path()] (48 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()] (22 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - classpath()] (38 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler prefers filePath over customHandler()] (36 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works with wildcards()] (44 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()] (47 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works with long nested resources()] (46 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:clearing the rate-limiter works()] (73 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()] (29 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()] (62 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns welcome file()] (67 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()] (43 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:pathless CrudHandler works()] (62 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with non encoded names with encoded url()] (77 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()] (47 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()] (53 ms)</li><li>io.javalin.TestApiBuilder.[engine:junit-jupiter]/[class:io.javalin.TestApiBuilder]/[method:CrudHandler works()] (82 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with encoded names with encoded url()] (78 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()] (96 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()] (281 ms)</li><li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding an event listener to the ServletContextHandler works()] (15 ms)</li><li>io.javalin.TestContextHandlerType.[engine:junit-jupiter]/[class:io.javalin.TestContextHandlerType]/[method:testHandlerTypeCanBeAccessedInContext()] (17 ms)</li><li>io.javalin.TestServerHeader.[engine:junit-jupiter]/[class:io.javalin.TestServerHeader]/[method:server header is not set by default()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in normal handler works()] (19 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error mapper is not overwritten()] (18 ms)</li><li>io.javalin.TestGlobalGlobalHeaderConfigPlugin.[engine:junit-jupiter]/[class:io.javalin.TestGlobalGlobalHeaderConfigPlugin]/[method:test headers are set on app()] (22 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper with content-type respects content-type()] (20 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper runs after exception-mapper()] (18 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()] (16 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video file smaller than chunksize works()] (21 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video large file works()] (22 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in before-handler works()] (27 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:seekable - audio, video overreaching range works()] (25 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()] (20 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()] (18 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:error-handlers run after future is resolved()] (27 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in exception-mapper works()] (27 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before-handler can set header()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade does work with skipRemainingHandlers()] (25 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper can throw exceptions()] (29 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()] (22 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after is after before()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched can skip remaining handlers()] (17 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars not available if not enabled()] (23 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()] (21 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:case sensitive urls work()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()] (23 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath doesn't crash for 404s()] (25 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur when the BEFORE_MATCHED stage is skipped()] (30 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before- and after-handlers can set a bunch of headers()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:dynamic handler responds with 304 when ETag is set()] (29 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard last works()] (29 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()] (21 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()] (17 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()] (19 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:can set headers after precompressing handler is done()] (27 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:automatic slash prefixing works()] (19 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()] (23 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:same hostname with different ports is detected as different origins()] (18 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:matchedPath returns the path used to match the request()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:NegativeTests]/[method:headers are not set when origin doesn't match()] (17 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()] (23 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - totally different path leads to 404 without global headers()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()] (23 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()] (25 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched and afterMatched work()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:no exceptions in logs when getting hosted path()] (31 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:urlPathPrefix filters requests to a specific subfolder()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:only handle resources matching the filter()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal Javalin serves files but serves directory if it is a directory()] (26 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:GH-2104 client sends dotless origin - wildcard configured()] (22 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching angle brackets in beforeMatched but no matching http handler leads to 404()] (24 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()] (38 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()] (18 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching sub curly in beforeMatched but no matching http handler leads to 404()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur()] (29 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur with alias check()] (54 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()] (34 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()] (36 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()] (30 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works()] (38 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for ResourceHandler - precompress()] (36 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()] (45 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:wsBeforeUpgrade exception pattern can be combined with a custom exception handler()] (82 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:one app can handle multiple static file locations()] (62 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ComplexSetup]/[method:works()] (44 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()] (78 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 with ssl and ALPN()] (293 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched runs for ResourceHandler()] (487 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

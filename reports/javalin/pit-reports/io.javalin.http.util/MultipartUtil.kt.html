@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MultipartUtil.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http.util</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.UploadedFile</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.servlet.JavalinServletRequest</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.BodyAlreadyReadException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.MultipartConfigElement</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.http.HttpServletRequest</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.http.Part</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import kotlin.text.Charsets.UTF_8</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>object MultipartUtil {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    const val MULTIPART_CONFIG_ATTRIBUTE = &#34;org.eclipse.jetty.multipartConfig&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val defaultConfig = MultipartConfigElement(System.getProperty(&#34;java.io.tmpdir&#34;), -1, -1, 1)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // TODO: This should be fetched from config instead</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Deprecated(&#34;Use `config.jetty.multipartConfig = new MultipartConfig()` instead&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    var preUploadFunction: (HttpServletRequest) -&#62; Unit = {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_26'>1</a>
+<span>
+
+1. invoke : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (it.getAttribute(MULTIPART_CONFIG_ATTRIBUTE) == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_27'>1</a>
+<span>
+
+1. invoke : removed call to jakarta/servlet/http/HttpServletRequest::setAttribute &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            it.setAttribute(MULTIPART_CONFIG_ATTRIBUTE, defaultConfig)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private inline fun &#60;R&#62; HttpServletRequest.processParts(body: (Sequence&#60;Part&#62;, Int) -&#62; R): R {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_32'>2</a>
+<span>
+
+1. processParts : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; NO_COVERAGE<br/>
+
+2. processParts : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if ((this as JavalinServletRequest).inputStreamRead) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw BodyAlreadyReadException(&#34;Request body has already been consumed. You cannot get multipart parts after reading the request body.&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        preUploadFunction(this)</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        val parts = this.parts</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_37'/>
+37
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_37'>2</a>
+<span>
+
+1. processParts : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; NO_COVERAGE<br/>
+
+2. processParts : replaced return value with null for io/javalin/http/util/MultipartUtil::processParts &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return body(parts.asSequence(), parts.size)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun getUploadedFiles(req: HttpServletRequest, partName: String): List&#60;UploadedFile&#62; =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        req.processParts { parts, size -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            parts</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_43'>3</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+2. invoke : replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFiles$1$1::invoke &rarr; KILLED<br/>
+
+3. invoke : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .filter { isFile(it) &#38;&#38; it.name == partName }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .mapTo(ArrayList(size)) { UploadedFile(it) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_45'>1</a>
+<span>
+
+1. getUploadedFiles : replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getUploadedFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun getUploadedFiles(req: HttpServletRequest): List&#60;UploadedFile&#62; =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        req.processParts { parts, size -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            parts</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_50'>2</a>
+<span>
+
+1. invoke : replaced Boolean return with False for io/javalin/http/util/MultipartUtil$getUploadedFiles$2$1::invoke &rarr; KILLED<br/>
+
+2. invoke : replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFiles$2$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .filter(::isFile)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .mapTo(ArrayList(size)) { UploadedFile(it) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_52'>1</a>
+<span>
+
+1. getUploadedFiles : replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getUploadedFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun getUploadedFileMap(req: HttpServletRequest): Map&#60;String, List&#60;UploadedFile&#62;&#62; =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        req.processParts { parts, size -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            parts</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_57'>2</a>
+<span>
+
+1. invoke : replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFileMap$1$1::invoke &rarr; SURVIVED<br/>
+
+2. invoke : replaced Boolean return with False for io/javalin/http/util/MultipartUtil$getUploadedFileMap$1$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .filter(::isFile)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .groupByTo(HashMap(size), { it.name }, { UploadedFile(it) })</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_59'>1</a>
+<span>
+
+1. getUploadedFileMap : replaced return value with Collections.emptyMap for io/javalin/http/util/MultipartUtil::getUploadedFileMap &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun getFieldMap(req: HttpServletRequest): Map&#60;String, List&#60;String&#62;&#62; =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        req.processParts { parts, size -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_63'>1</a>
+<span>
+
+1. getFieldMap : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            parts.associateTo(HashMap(size)) { it.name to getPartValue(req, it.name) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_64'>1</a>
+<span>
+
+1. getFieldMap : replaced return value with Collections.emptyMap for io/javalin/http/util/MultipartUtil::getFieldMap &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun getPartValue(req: HttpServletRequest, partName: String): List&#60;String&#62; =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        req.processParts { parts, size -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            parts</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_69'>3</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+2. invoke : negated conditional &rarr; KILLED<br/>
+
+3. invoke : replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getPartValue$1$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .filter { isField(it) &#38;&#38; it.name == partName }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_70'/>
+70
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_70'>2</a>
+<span>
+
+1. getPartValue : removed call to kotlin/io/CloseableKt::closeFinally &rarr; SURVIVED<br/>
+
+2. getPartValue : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .mapTo(ArrayList(size)) { part -&#62; part.inputStream.use { it.readBytes().toString(UTF_8) } }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_71'>1</a>
+<span>
+
+1. getPartValue : replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getPartValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun isField(filePart: Part): Boolean =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_74'>2</a>
+<span>
+
+1. isField : replaced boolean return with true for io/javalin/http/util/MultipartUtil::isField &rarr; KILLED<br/>
+
+2. isField : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        filePart.submittedFileName == null // this is what Apache FileUpload does</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun isFile(filePart: Part): Boolean =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_77'>2</a>
+<span>
+
+1. isFile : replaced boolean return with true for io/javalin/http/util/MultipartUtil::isFile &rarr; KILLED<br/>
+
+2. isFile : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        !isField(filePart)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f4dd848_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_26'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_27'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to jakarta/servlet/http/HttpServletRequest::setAttribute &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_32'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>processParts<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>processParts<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_37'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>processParts<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>processParts<br/><b>Killed by : </b>none</span></span> replaced return value with null for io/javalin/http/util/MultipartUtil::processParts &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</span></span> replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFiles$1$1::invoke &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()]</span></span> replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getUploadedFiles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()]</span></span> replaced Boolean return with False for io/javalin/http/util/MultipartUtil$getUploadedFiles$2$1::invoke &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()]</span></span> replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFiles$2$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()]</span></span> replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getUploadedFiles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getUploadedFileMap$1$1::invoke &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil$getUploadedFileMap$1$1,-method=invoke,-methodDesc=(Ljakarta/servlet/http/Part;)Ljava/lang/Boolean;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil$getUploadedFileMap$1$1,-method=invoke,-methodDesc=(Ljakarta/servlet/http/Part;)Ljava/lang/Boolean;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil$getUploadedFileMap$1$1,-method=invoke,-methodDesc=(Ljakarta/servlet/http/Part;)Ljava/lang/Boolean;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> replaced Boolean return with False for io/javalin/http/util/MultipartUtil$getUploadedFileMap$1$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFileMap<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> replaced return value with Collections.emptyMap for io/javalin/http/util/MultipartUtil::getUploadedFileMap &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_63'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFieldMap<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[100],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[100],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[100],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFieldMap<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> replaced return value with Collections.emptyMap for io/javalin/http/util/MultipartUtil::getFieldMap &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> replaced Boolean return with True for io/javalin/http/util/MultipartUtil$getPartValue$1$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_70'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>none</span></span> removed call to kotlin/io/CloseableKt::closeFinally &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[136,-152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[136,-152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[136,-152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> replaced return value with Collections.emptyList for io/javalin/http/util/MultipartUtil::getPartValue &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isField<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> replaced boolean return with true for io/javalin/http/util/MultipartUtil::isField &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isField<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isFile<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()]</span></span> replaced boolean return with true for io/javalin/http/util/MultipartUtil::isFile &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isFile<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_86'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text is uploaded correctly()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_95'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFiles<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/List;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/List;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFiles,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/List;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFileMap<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_104'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFileMap<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFileMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFileMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getUploadedFileMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUploadedFileMap<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_118'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFieldMap<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_123'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFieldMap<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getFieldMap,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;)Ljava/util/Map;],-indexes=[43],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_128'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f4dd848_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f4dd848_133'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPartValue<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.util.MultipartUtil,-method=getPartValue,-methodDesc=(Ljakarta/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/util/List;],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()] (31 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()] (39 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()] (41 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()] (41 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()] (30 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text is uploaded correctly()] (40 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()] (52 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()] (27 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()] (33 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()] (83 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:custom multipart properties applied correctly()] (90 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

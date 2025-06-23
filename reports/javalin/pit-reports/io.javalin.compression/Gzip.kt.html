@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Gzip.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.compression</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/** Configuration for Gzip compression</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param level Compression level. Higher yields better (but slower) compression. Range 0..9, default = 6 */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_5'/>
+5
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_5'>1</a>
+<span>
+
+1. getLevel : replaced int return with 0 for io/javalin/compression/Gzip::getLevel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>class Gzip(val level: Int = 6) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    init {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_7'/>
+7
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_7'>5</a>
+<span>
+
+1. &#60;init&#62; : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+3. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+4. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+
+5. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        require(level in 0..9) { &#34;Valid range for parameter level is 0 to 9&#34; }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a827812_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a827812_5'>5</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_5'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLevel<br/><b>Killed by : </b>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</span></span> replaced int return with 0 for io/javalin/compression/Gzip::getLevel &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a827812_7'>7</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a827812_7'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.Gzip,-method=<init>,-methodDesc=(I)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.compression.Gzip,-method=<init>,-methodDesc=(I)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.compression.Gzip,-method=<init>,-methodDesc=(I)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't brotli when brotli is disabled()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:disableCompression disables compression even if size is big()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when brotli disabled, but both requested()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg compression can be disabled()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:response encoding matches header()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when Accept-Encoding header is set and size is big enough()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when static files were pre-compressed()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when Accept-Encoding is not set()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:only creates one compressed version even if query params are present()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:precompressed files are served with correct content-type()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:first available encoding is used()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()]</li> <li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for dynamic responses of different sizes()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for large static files()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()]</li> <li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:levels are enforced()] (1 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:compression strategy can be customized by user()] (1 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't brotli when brotli is disabled()] (21 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:disableCompression disables compression even if size is big()] (21 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when brotli disabled, but both requested()] (22 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:chooses brotli when both enabled and supported()] (24 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg compression can be disabled()] (24 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:response encoding matches header()] (27 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:svg images are compressed by default()] (35 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does gzip when Accept-Encoding header is set and size is big enough()] (29 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when static files were pre-compressed()] (28 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:doesn't compress when Accept-Encoding is not set()] (34 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a small string of JSON with direct byte array writes to outputStream()] (55 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:compression works if precompression enabled()] (34 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:only creates one compressed version even if query params are present()] (44 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON()] (62 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:precompressed files are served with correct content-type()] (43 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:first available encoding is used()] (49 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct byte array writes to outputStream()] (71 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large string of JSON with direct single byte writes to outputStream()] (79 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:brotli works for dynamic responses of different sizes()] (90 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length available for large files if precompression enabled()] (78 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for dynamic responses of different sizes()] (102 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:gzip works for large static files()] (113 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:does brotli when Accept-Encoding header is set and size is big enough()] (164 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()] (418 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()] (1096 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

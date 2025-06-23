@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>DevLoggerPlugin.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.plugin.bundled</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.config.JavalinConfig</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.HandlerType</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Header</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.plugin.Plugin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.router.InternalRouter</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.JavalinLogger</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.websocket.WsConfig</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.websocket.WsContext</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.Consumer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Stream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The development debugging logger catches most of the interesting stuff about requests and responses,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * and logs it in an easy-to-read manner. It works both for HTTP and WebSocket requests. Only intended</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * for use during development and/or debugging.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class DevLoggingPlugin(userConfig: Consumer&#60;Config&#62;? = null) : Plugin&#60;DevLoggingPlugin.Config&#62;(userConfig, Config()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    class Config {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @JvmField</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        var skipStaticFiles = false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun onInitialize(config: JavalinConfig) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_29'>2</a>
+<span>
+
+1. onInitialize : removed call to io/javalin/config/RequestLoggerConfig::http &rarr; KILLED<br/>
+
+2. onInitialize$lambda$0 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        config.requestLogger.http { ctx, ms -&#62; httpDevLogger(config.pvt.internalRouter, ctx, ms) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_30'>2</a>
+<span>
+
+1. onInitialize : removed call to io/javalin/config/RequestLoggerConfig::ws &rarr; SURVIVED<br/>
+
+2. onInitialize$lambda$1 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::wsDevLogger &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        config.requestLogger.ws { wsDevLogger(it) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_31'>1</a>
+<span>
+
+1. onInitialize : removed call to io/javalin/config/EventConfig::handlerAdded &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        config.events.handlerAdded { handlerMetaInfo -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_32'>1</a>
+<span>
+
+1. onInitialize$lambda$2 : removed call to io/javalin/util/JavalinLogger::info$default &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            JavalinLogger.info(&#34;JAVALIN HANDLER REGISTRATION DEBUG LOG: ${handlerMetaInfo.httpMethod}[${handlerMetaInfo.path}]&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun httpDevLogger(router: InternalRouter, ctx: Context, time: Float) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_37'>2</a>
+<span>
+
+1. httpDevLogger : negated conditional &rarr; KILLED<br/>
+
+2. httpDevLogger : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (pluginConfig.skipStaticFiles &#38;&#38; isProbablyStaticFile(ctx)) return</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            val requestUri = ctx.path()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            with(ctx) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                val allMatching = Stream.of(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        router.findHttpHandlerEntries(HandlerType.BEFORE, requestUri),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        router.findHttpHandlerEntries(ctx.method(), requestUri),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        router.findHttpHandlerEntries(HandlerType.AFTER, requestUri)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    )</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_46'>2</a>
+<span>
+
+1. httpDevLogger$lambda$7$lambda$3 : replaced return value with Stream.empty for io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger$lambda$7$lambda$3 &rarr; NO_COVERAGE<br/>
+
+2. invoke : replaced return value with Stream.empty for io/javalin/plugin/bundled/DevLoggingPlugin$httpDevLogger$1$allMatching$1::invoke &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    .flatMap { it }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_47'/>
+47
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_47'>2</a>
+<span>
+
+1. httpDevLogger$lambda$7$lambda$4 : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger$lambda$7$lambda$4 &rarr; NO_COVERAGE<br/>
+
+2. invoke : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin$httpDevLogger$1$allMatching$2::invoke &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    .map { it.endpoint.method.name + &#34;=&#34; + it.endpoint.path }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_48'>1</a>
+<span>
+
+1. httpDevLogger : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                val resHeaders = res().headerNames.asSequence().map { it to res().getHeader(it) }.toMap()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_49'>1</a>
+<span>
+
+1. httpDevLogger : removed call to io/javalin/util/JavalinLogger::info$default &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                JavalinLogger.info(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;&#34;&#34;|JAVALIN REQUEST DEBUG LOG:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |Request: ${method()} [${path()}]</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    Matching endpoint-handlers: $allMatching</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    Headers: ${headerMap()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    Cookies: ${cookieMap()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_55'/>
+55
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_55'>1</a>
+<span>
+
+1. httpDevLogger : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>               |    Body: ${if (isMultipart()) &#34;Multipart data ...&#34; else body()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    QueryString: ${queryString()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    QueryParams: ${queryParamMap().mapValues { (_, v) -&#62; v.toString() }}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_58'>1</a>
+<span>
+
+1. httpDevLogger : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>               |    FormParams: ${(if (body().probablyFormData()) formParamMap() else mapOf()).mapValues { (_, v) -&#62; v.toString() }}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |Response: [${status()}], execution took ${Formatter(Locale.US).format(&#34;%.2f&#34;, time)} ms</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    Headers: $resHeaders</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |    ${resBody(ctx)}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>               |----------------------------------------------------------------------------------&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                )</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (e: Exception) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_66'>1</a>
+<span>
+
+1. httpDevLogger : removed call to io/javalin/util/JavalinLogger::info &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            JavalinLogger.info(&#34;An exception occurred while logging debug-info&#34;, e)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun isProbablyStaticFile(ctx: Context): Boolean {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val popularExtensions = arrayOf(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.jpg&#34;, &#34;.jpeg&#34;, &#34;.png&#34;, &#34;.gif&#34;, &#34;.bmp&#34;, &#34;.svg&#34;, &#34;.webp&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.css&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.js&#34;, &#34;.mjs&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.ttf&#34;, &#34;.otf&#34;, &#34;.woff&#34;, &#34;.woff2&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.pdf&#34;, &#34;.doc&#34;, &#34;.docx&#34;, &#34;.xls&#34;, &#34;.xlsx&#34;, &#34;.ppt&#34;, &#34;.pptx&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.mp3&#34;, &#34;.wav&#34;, &#34;.ogg&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.mp4&#34;, &#34;.webm&#34;, &#34;.ogv&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.ico&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.xml&#34;, &#34;.json&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.zip&#34;, &#34;.gz&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            &#34;.map&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        )</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val hasPopularExtension = popularExtensions.any { ctx.path().endsWith(it, ignoreCase = true) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val hasExtension = ctx.path().contains(&#34;.&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val hasNoPathParams = ctx.pathParamMap().isEmpty()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_87'>1</a>
+<span>
+
+1. isProbablyStaticFile : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        val hasEtag = ctx.header(Header.IF_NONE_MATCH) != null</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_88'>2</a>
+<span>
+
+1. isProbablyStaticFile : negated conditional &rarr; SURVIVED<br/>
+
+2. isProbablyStaticFile : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        val isGetOrHead = ctx.method() == HandlerType.GET || ctx.method() == HandlerType.HEAD</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_89'>6</a>
+<span>
+
+1. isProbablyStaticFile : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. isProbablyStaticFile : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. isProbablyStaticFile : negated conditional &rarr; NO_COVERAGE<br/>
+
+4. isProbablyStaticFile : replaced boolean return with true for io/javalin/plugin/bundled/DevLoggingPlugin::isProbablyStaticFile &rarr; SURVIVED<br/>
+
+5. isProbablyStaticFile : negated conditional &rarr; NO_COVERAGE<br/>
+
+6. isProbablyStaticFile : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return hasPopularExtension || hasExtension &#38;&#38; hasNoPathParams &#38;&#38; hasEtag &#38;&#38; isGetOrHead</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_92'>6</a>
+<span>
+
+1. probablyFormData : replaced boolean return with true for io/javalin/plugin/bundled/DevLoggingPlugin::probablyFormData &rarr; SURVIVED<br/>
+
+2. probablyFormData : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+3. probablyFormData : negated conditional &rarr; NO_COVERAGE<br/>
+
+4. probablyFormData : negated conditional &rarr; SURVIVED<br/>
+
+5. probablyFormData : negated conditional &rarr; NO_COVERAGE<br/>
+
+6. probablyFormData : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private fun String.probablyFormData() = this.trim().firstOrNull()?.isLetter() == true &#38;&#38; this.split(&#34;=&#34;).size &#62;= 2</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun resBody(ctx: Context): String {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_95'/>
+95
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_95'>2</a>
+<span>
+
+1. resBody : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; SURVIVED<br/>
+
+2. resBody : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        val stream = ctx.resultInputStream() ?: return &#34;No body was set&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_96'>1</a>
+<span>
+
+1. resBody : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!stream.markSupported()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_97'>1</a>
+<span>
+
+1. resBody : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;Body is binary (not logged)&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val gzipped = ctx.res().getHeader(Header.CONTENT_ENCODING) == &#34;gzip&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val brotlied = ctx.res().getHeader(Header.CONTENT_ENCODING) == &#34;br&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_102'/>
+102
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_102'>1</a>
+<span>
+
+1. resBody : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        val resBody = ctx.result()!!</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_103'>1</a>
+<span>
+
+1. resBody : replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_104'>1</a>
+<span>
+
+1. resBody : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            gzipped -&#62; &#34;Body is gzipped (${resBody.length} bytes, not logged)&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_105'/>
+105
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_105'>1</a>
+<span>
+
+1. resBody : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            brotlied -&#62; &#34;Body is brotlied (${resBody.length} bytes, not logged)&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_106'>1</a>
+<span>
+
+1. resBody : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            resBody.contains(&#34;resultString unavailable&#34;) -&#62; &#34;Body is an InputStream which can&#39;t be reset, so it can&#39;t be logged&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            else -&#62; &#34;Body is ${resBody.length} bytes (starts on next line):\n    $resBody&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun wsDevLogger(ws: WsConfig) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_112'/>
+112
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_112'>2</a>
+<span>
+
+1. wsDevLogger$lambda$9 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent$default &rarr; SURVIVED<br/>
+
+2. wsDevLogger : removed call to io/javalin/websocket/WsConfig::onConnect &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        ws.onConnect { ctx -&#62; ctx.logEvent(&#34;onConnect&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_113'/>
+113
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_113'>2</a>
+<span>
+
+1. wsDevLogger : removed call to io/javalin/websocket/WsConfig::onMessage &rarr; SURVIVED<br/>
+
+2. wsDevLogger$lambda$10 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        ws.onMessage { ctx -&#62; ctx.logEvent(&#34;onMessage&#34;, &#34;Message (next line):\n${ctx.message()}&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_114'/>
+114
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_114'>2</a>
+<span>
+
+1. wsDevLogger : removed call to io/javalin/websocket/WsConfig::onBinaryMessage &rarr; SURVIVED<br/>
+
+2. wsDevLogger$lambda$11 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        ws.onBinaryMessage { ctx -&#62; ctx.logEvent(&#34;onBinaryMessage&#34;, &#34;Offset: ${ctx.offset()}, Length: ${ctx.length()}\nMessage (next line):\n${ctx.data()}&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_115'/>
+115
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_115'>3</a>
+<span>
+
+1. wsDevLogger$lambda$12 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; SURVIVED<br/>
+
+2. wsDevLogger$lambda$12 : negated conditional &rarr; SURVIVED<br/>
+
+3. wsDevLogger : removed call to io/javalin/websocket/WsConfig::onClose &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        ws.onClose { ctx -&#62; ctx.logEvent(&#34;onClose&#34;, &#34;StatusCode: ${ctx.status()}\nReason: ${ctx.reason() ?: &#34;No reason was provided&#34;}&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_116'/>
+116
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_116'>3</a>
+<span>
+
+1. wsDevLogger$lambda$13 : removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE<br/>
+
+2. wsDevLogger : removed call to io/javalin/websocket/WsConfig::onError &rarr; SURVIVED<br/>
+
+3. wsDevLogger$lambda$13 : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        ws.onError { ctx -&#62; ctx.logEvent(&#34;onError&#34;, &#34;Throwable:  ${ctx.error() ?: &#34;No throwable was provided&#34;}&#34;) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private fun WsContext.logEvent(event: String, additionalInfo: String = &#34;&#34;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_120'/>
+120
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_120'>1</a>
+<span>
+
+1. logEvent : removed call to io/javalin/util/JavalinLogger::info$default &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        JavalinLogger.info(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;&#34;&#34;|JAVALIN WEBSOCKET DEBUG LOG</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |WebSocket Event: $event</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |Session Id: ${this.sessionId()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |Host: ${this.host()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |Matched Path: ${this.matchedPath()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |PathParams: ${this.pathParamMap()}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_127'/>
+127
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_127'>1</a>
+<span>
+
+1. logEvent : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>           |QueryParams: ${if (this.queryString() != null) this.queryParamMap().mapValues { (_, v) -&#62; v.toString() }.toString() else &#34;No query string was provided&#34;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |$additionalInfo</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>           |----------------------------------------------------------------------------------&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        )</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1be3e1f_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>onInitialize<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</span></span> removed call to io/javalin/config/RequestLoggerConfig::http &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>onInitialize$lambda$0<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_30'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>onInitialize<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/config/RequestLoggerConfig::ws &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize,-methodDesc=(Lio/javalin/config/JavalinConfig;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize,-methodDesc=(Lio/javalin/config/JavalinConfig;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize,-methodDesc=(Lio/javalin/config/JavalinConfig;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>onInitialize$lambda$1<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::wsDevLogger &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize$lambda$1,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize$lambda$1,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=onInitialize$lambda$1,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>onInitialize<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</span></span> removed call to io/javalin/config/EventConfig::handlerAdded &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>onInitialize$lambda$2<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</span></span> removed call to io/javalin/util/JavalinLogger::info$default &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_46'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger$lambda$7$lambda$3<br/><b>Killed by : </b>none</span></span> replaced return value with Stream.empty for io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger$lambda$7$lambda$3 &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced return value with Stream.empty for io/javalin/plugin/bundled/DevLoggingPlugin$httpDevLogger$1$allMatching$1::invoke &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_47'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger$lambda$7$lambda$4<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::httpDevLogger$lambda$7$lambda$4 &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin$httpDevLogger$1$allMatching$2::invoke &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_48'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[90],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[90],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[90],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</span></span> removed call to io/javalin/util/JavalinLogger::info$default &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_55'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_58'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[260],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[260],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=httpDevLogger,-methodDesc=(Lio/javalin/router/InternalRouter;Lio/javalin/http/Context;F)V],-indexes=[260],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_66'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>httpDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/util/JavalinLogger::info &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_87'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[322],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[322],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[322],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_88'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[336],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[336],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[336],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_89'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/plugin/bundled/DevLoggingPlugin::isProbablyStaticFile &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[372],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[372],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[372],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_92'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for io/javalin/plugin/bundled/DevLoggingPlugin::probablyFormData &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=probablyFormData,-methodDesc=(Ljava/lang/String;)Z],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>probablyFormData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_95'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_102'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=resBody,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</span></span> replaced return value with &#34;&#34; for io/javalin/plugin/bundled/DevLoggingPlugin::resBody &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_105'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resBody<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_112'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wsDevLogger$lambda$9<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent$default &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$9,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConnectContext;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$9,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConnectContext;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$9,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsConnectContext;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wsDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsConfig::onConnect &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[6],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_113'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wsDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsConfig::onMessage &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wsDevLogger$lambda$10<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_114'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wsDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsConfig::onBinaryMessage &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[18],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wsDevLogger$lambda$11<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_115'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wsDevLogger$lambda$12<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wsDevLogger$lambda$12<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger$lambda$12,-methodDesc=(Lio/javalin/plugin/bundled/DevLoggingPlugin;Lio/javalin/websocket/WsCloseContext;)V],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>wsDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsConfig::onClose &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_116'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wsDevLogger$lambda$13<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/plugin/bundled/DevLoggingPlugin::logEvent &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wsDevLogger<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/websocket/WsConfig::onError &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=wsDevLogger,-methodDesc=(Lio/javalin/websocket/WsConfig;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>wsDevLogger$lambda$13<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_120'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>logEvent<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/util/JavalinLogger::info$default &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[162],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[162],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[162],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_127'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>logEvent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=logEvent,-methodDesc=(Lio/javalin/websocket/WsContext;Ljava/lang/String;Ljava/lang/String;)V],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1be3e1f_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1be3e1f_147'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[289],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[289],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[289],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isProbablyStaticFile<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[284],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[284],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.plugin.bundled.DevLoggingPlugin,-method=isProbablyStaticFile,-methodDesc=(Lio/javalin/http/Context;)Z],-indexes=[284],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()] (26 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()] (26 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:can skip static files for dev logging()] (14 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:all config options()] (43 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()] (29 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()] (43 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

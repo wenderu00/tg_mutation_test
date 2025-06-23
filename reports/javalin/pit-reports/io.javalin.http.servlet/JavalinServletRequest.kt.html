@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>JavalinServletRequest.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http.servlet</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.ServletInputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.http.HttpServletRequest</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.servlet.http.HttpServletRequestWrapper</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class JavalinServletRequest(request: HttpServletRequest) : HttpServletRequestWrapper(request) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_8'/>
+8
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_8'>2</a>
+<span>
+
+1. getInputStreamRead$javalin : replaced boolean return with true for io/javalin/http/servlet/JavalinServletRequest::getInputStreamRead$javalin &rarr; KILLED<br/>
+
+2. getInputStreamRead$javalin : replaced boolean return with false for io/javalin/http/servlet/JavalinServletRequest::getInputStreamRead$javalin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    internal var inputStreamRead: Boolean = false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private set</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun getInputStream(): ServletInputStream =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_12'/>
+12
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_12'>1</a>
+<span>
+
+1. getInputStream : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        super.getInputStream().also { inputStreamRead = true }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46176e92_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46176e92_8'>8</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_8'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInputStreamRead$javalin<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()]</span></span> replaced boolean return with true for io/javalin/http/servlet/JavalinServletRequest::getInputStreamRead$javalin &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getInputStreamRead$javalin<br/><b>Killed by : </b>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()]</span></span> replaced boolean return with false for io/javalin/http/servlet/JavalinServletRequest::getInputStreamRead$javalin &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46176e92_12'>12</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46176e92_12'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInputStream<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.servlet.JavalinServletRequest,-method=getInputStream,-methodDesc=()Ljakarta/servlet/ServletInputStream;],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.servlet.JavalinServletRequest,-method=getInputStream,-methodDesc=()Ljakarta/servlet/ServletInputStream;],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.servlet.JavalinServletRequest,-method=getInputStream,-methodDesc=()Ljakarta/servlet/ServletInputStream;],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as stream works()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonStream()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as bytes works()]</li> <li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:body can be read multiple times()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonString()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body multiple times works()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns null for unknown param()]</li> <li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then query-params works()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading query-params then body works()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns supplied form-param()]</li> <li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252 alt()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()]</li> <li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()]</li> <li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params with strictContentTypes and without contentType works()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params then body works()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:form params that are invalidly encoded are nulled()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:only form params that are invalidly encoded are nulled()]</li> <li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then form-params works()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading unicode form-params works()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()]</li> <li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:query-params and form-params behave the same()]</li> <li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:user can deserialize objects using gson mapper()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns defaults to default value()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()]</li> <li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()]</li> <li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()]</li> <li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:changing the multipart config correctly sets it()] (27 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works with multiple fields()] (31 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:returning files as map works()] (33 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()] (30 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:multiple files are handled correctly()] (41 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text is uploaded correctly()] (40 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:unicode text-fields work()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mixing files and text fields works()] (39 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:text-fields work()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:fields and files work in other client()] (41 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()] (52 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:getting all files is handled correctly()] (83 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:custom multipart properties applied correctly()] (90 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as stream works()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonStream()] (15 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body as bytes works()] (21 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:body can be read multiple times()] (16 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonString()] (14 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body multiple times works()] (18 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()] (17 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns null for unknown param()] (14 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work()] (15 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then query-params works()] (17 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading query-params then body works()] (18 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns supplied form-param()] (15 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252 alt()] (17 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging does log static files by default()] (29 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()] (17 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:URLEncoded form-params work Windows-1252()] (17 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params with strictContentTypes and without contentType works()] (19 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading form-params then body works()] (18 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:form params that are invalidly encoded are nulled()] (18 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:only form params that are invalidly encoded are nulled()] (18 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()] (18 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading body then form-params works()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading unicode form-params works()] (27 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()] (26 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:query-params and form-params behave the same()] (19 ms)</li><li>io.javalin.TestJavalinGson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinGson]/[method:user can deserialize objects using gson mapper()] (38 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParam returns defaults to default value()] (25 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()] (17 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:debug logging works with binary stream()] (25 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works with inputstreams()] (26 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()] (28 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()] (23 ms)</li><li>io.javalin.TestLogging.[engine:junit-jupiter]/[class:io.javalin.TestLogging]/[method:dev logging works()] (26 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()] (18 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()] (36 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()] (45 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:content type works in debugmmode()] (43 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()] (53 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:dev logging works for web sockets()] (47 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()] (281 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

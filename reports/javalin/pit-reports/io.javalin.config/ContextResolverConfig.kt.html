@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ContextResolverConfig.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.config</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Header</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Configure the implementation for Context functions.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @see [JavalinConfig.contextResolver]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class ContextResolverConfig {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    companion object {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internal val ContextResolverKey = Key&#60;ContextResolverConfig&#62;(&#34;javalin-context-resolver&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // @formatter:off</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The IP address resolver (default: reads the `remoteAddr` part of the request) */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_17'>2</a>
+<span>
+
+1. invoke : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. invoke : replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$ip$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    @JvmField var ip: (Context) -&#62; String = { it.req().remoteAddr }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The host resolver (default: reads the `Host` header). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_19'>1</a>
+<span>
+
+1. invoke : replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$host$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    @JvmField var host: (Context) -&#62; String? = { it.header(Header.HOST) }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The scheme resolver (default: reads the `scheme` part of the request). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_21'>2</a>
+<span>
+
+1. invoke : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. invoke : replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$scheme$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    @JvmField var scheme: (Context) -&#62; String = { it.req().scheme }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The URL resolver (default: reads the `requestUrl` part of the request). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_23'/>
+23
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_23'>2</a>
+<span>
+
+1. invoke : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. invoke : replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$url$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    @JvmField var url: (Context) -&#62; String = { it.req().requestURL.toString() }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** The full URL resolver (default: reads the url with its query string). */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_25'>2</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+2. invoke : replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$fullUrl$1::invoke &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    @JvmField var fullUrl: (Context) -&#62; String = { it.url() + if (it.queryString() != null) &#34;?&#34; + it.queryString() else &#34;&#34; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // @formatter:on</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68c89396_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68c89396_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_17'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$ip$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$ip$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$ip$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:ip works()]</li> <li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:contextResolvers config with default settings()]</li> <li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:clearing the rate-limiter works()]</li> <li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()]</li> <li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()]</li> <li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:ip works()]</span></span> replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$ip$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68c89396_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:host works()]</span></span> replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$host$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68c89396_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_21'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$scheme$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$scheme$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$scheme$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:scheme works()]</li> <li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Does Not Work Without Customizer()]</li> <li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Works With Customizer()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:scheme works()]</span></span> replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$scheme$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68c89396_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_23'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$url$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$url$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.config.ContextResolverConfig$url$1,-method=invoke,-methodDesc=(Lio/javalin/http/Context;)Ljava/lang/String;],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:url works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't cache on localhost()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()]</li> <li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - external()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts contains star-slash-star()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts is blank or star-slash-star()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - classpath()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler prefers filePath over customHandler()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()]</li> <li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()]</span></span> replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$url$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68c89396_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68c89396_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()]</span></span> replaced return value with &#34;&#34; for io/javalin/config/ContextResolverConfig$fullUrl$1::invoke &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:scheme works()] (12 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Does Not Work Without Customizer()] (17 ms)</li><li>io.javalin.TestCustomJettyHttpConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestCustomJettyHttpConfiguration]/[method:X-Fowarded-Proto Works With Customizer()] (20 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()] (18 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:fullUrl works()] (16 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:host works()] (14 ms)</li><li>io.javalin.TestConfiguration.[engine:junit-jupiter]/[class:io.javalin.TestConfiguration]/[method:contextResolvers config with default settings()] (23 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:url works()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()] (13 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't cache on localhost()] (22 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - external()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()] (23 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts contains star-slash-star()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works when accepts is blank or star-slash-star()] (36 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()] (26 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for HTML requests - classpath()] (38 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()] (24 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()] (32 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()] (28 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler prefers filePath over customHandler()] (36 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()] (31 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()] (33 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()] (37 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:ip works()] (16 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:clearing the rate-limiter works()] (73 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()] (62 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()] (96 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

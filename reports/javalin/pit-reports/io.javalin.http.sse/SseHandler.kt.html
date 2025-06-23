@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>SseHandler.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http.sse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Handler</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Header</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.Consumer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class SseHandler @JvmOverloads constructor(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val timeout: Long = 0,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val clientConsumer: Consumer&#60;SseClient&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>) : Handler {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun handle(ctx: Context) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_14'/>
+14
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_14'>1</a>
+<span>
+
+1. handle : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (ctx.header(Header.ACCEPT) == &#34;text/event-stream&#34;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            ctx.res().apply {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_16'/>
+16
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_16'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::setStatus &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                status = 200</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_17'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::setCharacterEncoding &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                characterEncoding = &#34;UTF-8&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_18'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::setContentType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                contentType = &#34;text/event-stream&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_19'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                addHeader(Header.CONNECTION, &#34;close&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_20'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                addHeader(Header.CACHE_CONTROL, &#34;no-cache&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_21'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                addHeader(Header.X_ACCEL_BUFFERING, &#34;no&#34;) // See https://serverfault.com/a/801629</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_22'/>
+22
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_22'>1</a>
+<span>
+
+1. handle : removed call to jakarta/servlet/http/HttpServletResponse::flushBuffer &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                flushBuffer()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_24'>1</a>
+<span>
+
+1. handle : removed call to io/javalin/http/Context::async &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            ctx.async({</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                it.timeout = timeout</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_27'>1</a>
+<span>
+
+1. handle$lambda$2 : removed call to java/util/function/Consumer::accept &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                clientConsumer.accept(SseClient(ctx))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_14'>14</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_14'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_16'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> removed call to jakarta/servlet/http/HttpServletResponse::setStatus &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending input stream works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line data works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events with ID works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events to multiple clients works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:getting queryParam in sse handler works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sse works from ApiBuilder()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:user can freeze sse handler to leak sse client outside the handler()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending empty Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending async data is properly processed()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</span></span> removed call to jakarta/servlet/http/HttpServletResponse::setCharacterEncoding &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</span></span> removed call to jakarta/servlet/http/HttpServletResponse::setContentType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</span></span> removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</span></span> removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_21'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> removed call to jakarta/servlet/http/HttpServletResponse::addHeader &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending input stream works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line data works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events with ID works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events to multiple clients works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:getting queryParam in sse handler works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sse works from ApiBuilder()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:user can freeze sse handler to leak sse client outside the handler()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending empty Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending async data is properly processed()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_22'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> removed call to jakarta/servlet/http/HttpServletResponse::flushBuffer &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.http.sse.SseHandler,-method=handle,-methodDesc=(Lio/javalin/http/Context;)V],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending input stream works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line data works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events with ID works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events to multiple clients works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:getting queryParam in sse handler works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sse works from ApiBuilder()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:user can freeze sse handler to leak sse client outside the handler()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending empty Comment works()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending async data is properly processed()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</span></span> removed call to io/javalin/http/Context::async &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5dcdaa58_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5dcdaa58_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle$lambda$2<br/><b>Killed by : </b>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()]</span></span> removed call to java/util/function/Consumer::accept &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:can check if SseClient has been terminated()] (18 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending input stream works()] (16 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line data works()] (17 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending Comment works()] (17 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending multi line Comment works()] (20 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events with ID works()] (19 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:default http status is 200()] (20 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:all headers are correctly configured()] (19 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()] (21 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending events to multiple clients works()] (25 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:getting queryParam in sse handler works()] (17 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sse works from ApiBuilder()] (26 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:user can freeze sse handler to leak sse client outside the handler()] (67 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending empty Comment works()] (109 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending async data is properly processed()] (123 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

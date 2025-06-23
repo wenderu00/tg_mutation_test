@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MethodNotAllowedUtil.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http.util</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.HandlerType</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.servlet.acceptsHtml</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.router.InternalRouter</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>object MethodNotAllowedUtil {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun findAvailableHttpHandlerTypes(router: InternalRouter, requestUri: String) =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_17'>3</a>
+<span>
+
+1. findAvailableHttpHandlerTypes : negated conditional &rarr; KILLED<br/>
+
+2. findAvailableHttpHandlerTypes : replaced return value with Collections.emptyList for io/javalin/http/util/MethodNotAllowedUtil::findAvailableHttpHandlerTypes &rarr; KILLED<br/>
+
+3. findAvailableHttpHandlerTypes : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        enumValues&#60;HandlerType&#62;().filter { it.isHttpMethod &#38;&#38; router.findHttpHandlerEntries(it, requestUri).findFirst().isPresent }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    fun getAvailableHandlerTypes(ctx: Context, availableHandlerTypes: List&#60;HandlerType&#62;): Map&#60;String, String&#62; = mapOf(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_20'>1</a>
+<span>
+
+1. getAvailableHandlerTypes : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        (if (acceptsHtml(ctx)) &#34;Available methods&#34; else &#34;availableMethods&#34;) to availableHandlerTypes.joinToString(&#34;, &#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_21'>1</a>
+<span>
+
+1. getAvailableHandlerTypes : replaced return value with Collections.emptyMap for io/javalin/http/util/MethodNotAllowedUtil::getAvailableHandlerTypes &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    )</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2948777a_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2948777a_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> replaced return value with Collections.emptyList for io/javalin/http/util/MethodNotAllowedUtil::findAvailableHttpHandlerTypes &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2948777a_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAvailableHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2948777a_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAvailableHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> replaced return value with Collections.emptyMap for io/javalin/http/util/MethodNotAllowedUtil::getAvailableHandlerTypes &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2948777a_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2948777a_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>findAvailableHttpHandlerTypes<br/><b>Killed by : </b>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding an event listener to the ServletContextHandler works()] (15 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()] (22 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException subclass handler is used()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override 404()] (13 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException handler is used for subclasses()] (16 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for POST if only before-handler present()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:urls are case sensitive()] (13 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can handle endpoint not found differently than regular 404()] (12 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for GET if only before-handler present()] (16 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before-handler can set header()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all unmapped verbs return 404()] (18 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()] (16 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after is after before()] (17 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler chain()] (36 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()] (15 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars not available if not enabled()] (23 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched can skip remaining handlers()] (17 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have a wrapped handler collection()] (39 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:case sensitive urls work()] (22 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes are not accepted when not enabled()] (25 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath doesn't crash for 404s()] (25 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before- and after-handlers can set a bunch of headers()] (22 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard last works()] (29 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:automatic slash prefixing works()] (19 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched fires for head request on get handler()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:matchedPath returns the path used to match the request()] (28 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with wildcards()] (17 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns simple 404 if there is no welcome file()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - totally different path leads to 404 without global headers()] (18 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with wildcards()] (21 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched and afterMatched work()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:no exceptions in logs when getting hosted path()] (31 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:only handle resources matching the filter()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal Javalin serves files but serves directory if it is a directory()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:urlPathPrefix filters requests to a specific subfolder()] (26 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching angle brackets in beforeMatched but no matching http handler leads to 404()] (24 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching sub curly in beforeMatched but no matching http handler leads to 404()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur()] (29 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()] (43 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:one app can handle multiple static file locations()] (62 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with encoded names with encoded url()] (78 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 with ssl and ALPN()] (293 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

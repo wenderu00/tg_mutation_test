@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>JavalinJackson.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Javalin - https://javalin.io</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2017 David &#197;se</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under Apache 2.0: https://github.com/tipsy/javalin/blob/master/LICENSE</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.json</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.databind.Module</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.databind.ObjectMapper</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.InternalServerErrorResponse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.CoreDependency</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.DependencyUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.JavalinLogger</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.Util</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.util.javalinLazy</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.InputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.OutputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.reflect.Type</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.Consumer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Stream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class JavalinJackson(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private var objectMapper: ObjectMapper? = null,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private val useVirtualThreads: Boolean = false,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>) : JsonMapper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_28'>1</a>
+<span>
+
+1. getPipedStreamExecutor : replaced return value with null for io/javalin/json/JavalinJackson::getPipedStreamExecutor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private val pipedStreamExecutor: PipedStreamExecutor by javalinLazy { PipedStreamExecutor(useVirtualThreads) }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    val mapper by javalinLazy {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_31'>1</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!Util.classExists(CoreDependency.JACKSON.testClass)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            val message =</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;&#34;&#34;|It looks like you don&#39;t have an object mapper configured.</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                   |The easiest way to fix this is to simply add the &#39;${CoreDependency.JACKSON.artifactId}&#39; dependency:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                   |</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                   |${DependencyUtil.mavenAndGradleSnippets(CoreDependency.JACKSON)}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                   |</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                   |If you&#39;re using Kotlin, you will need to add &#39;${CoreDependency.JACKSON_KT.artifactId}&#39;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                   |</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                   |To use a different object mapper, visit https://javalin.io/documentation#configuring-the-json-mapper&#34;&#34;&#34;.trimMargin()</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_41'>1</a>
+<span>
+
+1. invoke : removed call to io/javalin/util/JavalinLogger::warn$default &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            JavalinLogger.warn(DependencyUtil.wrapInSeparators(message))</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw InternalServerErrorResponse(message)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_44'>1</a>
+<span>
+
+1. invoke : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        objectMapper ?: defaultMapper()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    override fun toJsonString(obj: Any, type: Type): String = when (obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_48'>1</a>
+<span>
+
+1. toJsonString : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        is String -&#62; obj // the default mapper treats strings as if they are already JSON</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_49'>1</a>
+<span>
+
+1. toJsonString : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        else -&#62; mapper.writeValueAsString(obj) // convert object to JSON</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_50'>1</a>
+<span>
+
+1. toJsonString : replaced return value with &#34;&#34; for io/javalin/json/JavalinJackson::toJsonString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    override fun toJsonStream(obj: Any, type: Type): InputStream = when (obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_53'>2</a>
+<span>
+
+1. toJsonStream : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+2. toJsonStream : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        is String -&#62; obj.byteInputStream() // the default mapper treats strings as if they are already JSON</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        else -&#62; pipedStreamExecutor.getInputStream { pipedOutputStream -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_55'>1</a>
+<span>
+
+1. invoke : removed call to com/fasterxml/jackson/core/JsonGenerator::writeObject &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            mapper.factory.createGenerator(pipedOutputStream).writeObject(obj)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun writeToOutputStream(stream: Stream&#60;*&#62;, outputStream: OutputStream) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_60'>1</a>
+<span>
+
+1. writeToOutputStream : removed call to kotlin/io/CloseableKt::closeFinally &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        mapper.writer().writeValuesAsArray(outputStream).use { sequenceWriter -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_61'>1</a>
+<span>
+
+1. writeToOutputStream : removed call to java/util/stream/Stream::forEach &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            stream.forEach { sequenceWriter.write(it) }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun &#60;T : Any&#62; fromJsonString(json: String, targetType: Type): T =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_66'>1</a>
+<span>
+
+1. fromJsonString : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        mapper.readValue(json, mapper.typeFactory.constructType(targetType))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    override fun &#60;T : Any&#62; fromJsonStream(json: InputStream, targetType: Type): T =</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_69'>1</a>
+<span>
+
+1. fromJsonStream : removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        mapper.readValue(json, mapper.typeFactory.constructType(targetType))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Update the current mapper and return self for easy chaining */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun updateMapper(updateFunction: Consumer&#60;ObjectMapper&#62;): JavalinJackson {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_73'>1</a>
+<span>
+
+1. updateMapper : removed call to java/util/function/Consumer::accept &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        updateFunction.accept(this.mapper)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return this</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    companion object {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @JvmStatic</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fun defaultMapper(): ObjectMapper = ObjectMapper()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .registerOptionalModule(CoreDependency.JACKSON_KT.testClass)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .registerOptionalModule(CoreDependency.JACKSON_JSR_310.testClass)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .registerOptionalModule(CoreDependency.JACKSON_ECLIPSE_COLLECTIONS.testClass)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            .registerOptionalModule(CoreDependency.JACKSON_KTORM.testClass) // very optional module for ktorm (a kotlin orm)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>private fun ObjectMapper.registerOptionalModule(classString: String): ObjectMapper {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_88'>1</a>
+<span>
+
+1. registerOptionalModule : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (Util.classExists(classString)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_89'>1</a>
+<span>
+
+1. registerOptionalModule : removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.registerModule(Class.forName(classString).getConstructor().newInstance() as Module)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_91'>1</a>
+<span>
+
+1. registerOptionalModule : replaced return value with null for io/javalin/json/JavalinJacksonKt::registerOptionalModule &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return this</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@73a981cc_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPipedStreamExecutor<br/><b>Killed by : </b>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()]</span></span> replaced return value with null for io/javalin/json/JavalinJackson::getPipedStreamExecutor &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_41'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>none</span></span> removed call to io/javalin/util/JavalinLogger::warn$default &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJsonString<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a large Stream to JSON()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_49'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJsonString<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonString,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonString,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonString,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a large Stream to JSON()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can use JavalinJackson with a custom object-mapper on a kotlin data class()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper treats strings as already being json()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper throws error()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonStream()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonStream()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can update ObjectMapper of JavalinJackson()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonString()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonString()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:default JavalinJackson includes nulls()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps object to json()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper can serialize instant()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:can write a JSON stream with async()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie should not be duplicated()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie path is root()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can use Moshi as mapper()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()]</li> <li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works for null when nullable()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:renaming cookieStore cookie works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two handlers()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()]</li> <li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use JavalinValidation#collectErrors to collect errors from multiple Validators()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two requests()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with multiple objects()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore can be cleared()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with object overwrite()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJsonString<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a large Stream to JSON()]</span></span> replaced return value with &#34;&#34; for io/javalin/json/JavalinJackson::toJsonString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJsonStream<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:toJsonStream treats Strings as already being json()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toJsonStream<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonStream,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/io/InputStream;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonStream,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/io/InputStream;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=toJsonStream,-methodDesc=(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/io/InputStream;],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:toJsonStream treats Strings as already being json()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invoke<br/><b>Killed by : </b>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()]</span></span> removed call to com/fasterxml/jackson/core/JsonGenerator::writeObject &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToOutputStream<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> removed call to kotlin/io/CloseableKt::closeFinally &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToOutputStream<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> removed call to java/util/stream/Stream::forEach &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_66'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJsonString<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=fromJsonString,-methodDesc=(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=fromJsonString,-methodDesc=(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJackson,-method=fromJsonString,-methodDesc=(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can use JavalinJackson with a custom object-mapper on a kotlin data class()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two requests()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with multiple objects()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore can be cleared()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()]</li> <li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with object overwrite()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_69'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJsonStream<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNullExpressionValue &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateMapper<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can update ObjectMapper of JavalinJackson()]</span></span> removed call to java/util/function/Consumer::accept &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>registerOptionalModule<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_89'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>registerOptionalModule<br/><b>Killed by : </b>none</span></span> removed call to kotlin/jvm/internal/Intrinsics::checkNotNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJacksonKt,-method=registerOptionalModule,-methodDesc=(Lcom/fasterxml/jackson/databind/ObjectMapper;Ljava/lang/String;)Lcom/fasterxml/jackson/databind/ObjectMapper;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJacksonKt,-method=registerOptionalModule,-methodDesc=(Lcom/fasterxml/jackson/databind/ObjectMapper;Ljava/lang/String;)Lcom/fasterxml/jackson/databind/ObjectMapper;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=io.javalin.json.JavalinJacksonKt,-method=registerOptionalModule,-methodDesc=(Lcom/fasterxml/jackson/databind/ObjectMapper;Ljava/lang/String;)Lcom/fasterxml/jackson/databind/ObjectMapper;],-indexes=[20],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a large Stream to JSON()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can use JavalinJackson with a custom object-mapper on a kotlin data class()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can update ObjectMapper of JavalinJackson()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:default JavalinJackson includes nulls()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps object to json()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper can serialize instant()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:can write a JSON stream with async()]</li> <li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can write a JSON stream with JavalinJackson()]</li> <li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie should not be duplicated()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie path is root()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()]</li> <li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works for null when nullable()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:renaming cookieStore cookie works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two handlers()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()]</li> <li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use JavalinValidation#collectErrors to collect errors from multiple Validators()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two requests()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()]</li> <li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with multiple objects()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore can be cleared()]</li> <li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()]</li> <li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()]</li> <li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()]</li> <li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()]</li> <li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with object overwrite()]</li> <li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()]</li> <li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()]</li> <li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()]</li> <li>io.javalin.TestMocking.[engine:junit-jupiter]/[class:io.javalin.TestMocking]/[nested-class:Mockk]/[method:gh-1953 should mock body()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()]</li> <li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@73a981cc_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@73a981cc_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>registerOptionalModule<br/><b>Killed by : </b>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()]</span></span> replaced return value with null for io/javalin/json/JavalinJacksonKt::registerOptionalModule &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper doesn't deadlock when streaming large objects()] (36 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()] (22 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can use JavalinJackson with a custom object-mapper on a kotlin data class()] (32 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps json to object with strict json request()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper mapper maps json to object()] (17 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:mp3s are uploaded correctly()] (30 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()] (17 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:body validator with check and retrieve errors()] (28 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two requests()] (41 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()] (23 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:pngs are uploaded correctly()] (52 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with multiple objects()] (46 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore can be cleared()] (52 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()] (36 ms)</li><li>io.javalin.TestWebSocket.[engine:junit-jupiter]/[class:io.javalin.TestWebSocket]/[method:receive and send json messages()] (50 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two request with object overwrite()] (75 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:All errors can be collected from multiple validators()] (53 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a small Stream to JSON()] (4 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:JavalinJackson can convert a large Stream to JSON()] (22 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:can write a JSON stream with async()] (14 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can write a JSON stream with JavalinJackson()] (27 ms)</li><li>io.javalin.TestCompression.[engine:junit-jupiter]/[class:io.javalin.TestCompression]/[method:compresses a large Stream of JSON()] (418 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:can update ObjectMapper of JavalinJackson()] (16 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:default JavalinJackson includes nulls()] (19 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper maps object to json()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper can serialize instant()] (22 ms)</li><li>io.javalin.TestSse.[engine:junit-jupiter]/[class:io.javalin.TestSse]/[method:sending json works()] (21 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie should not be duplicated()] (32 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore cookie path is root()] (34 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()] (21 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works for null when nullable()] (20 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:renaming cookieStore cookie works()] (47 ms)</li><li>io.javalin.TestCookieStore.[engine:junit-jupiter]/[class:io.javalin.TestCookieStore]/[method:cookieStore works between two handlers()] (35 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()] (21 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component can have attributes()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if dev()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with default renderer()] (19 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resoleAllDependenciesTest()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@inlineFile functionality works as expected if not-dev()] (18 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use JavalinValidation#collectErrors to collect errors from multiple Validators()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre renderer()] (20 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to https even on non https hosts()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:LoadableData class is included()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component works Javalin#error()] (16 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:component shorthand works()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with post renderer()] (20 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()] (26 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:unicode in template works()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to webjar on localhost()] (25 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:@cdnWebjar resolves to cdn on non-localhost()] (22 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:state is escaped()] (23 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:classpath rootDirectory works()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithMultilineComponentsUsageTest()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveNestedDependencyTest()] (26 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:setting rootDirectory with Path works()] (24 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPostRenderer()] (32 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testDefaultPreAndPostRenderer()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testPreRenderer()] (29 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()] (38 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:componentWithNumberTest()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component without state with pre and post renderer()] (27 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component without state()] (26 ms)</li><li>io.javalin.javalinvue.TestJavalinVueHandler.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueHandler]/[method:testVueRenderer()] (31 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveSingleDependencyTest()] (29 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()] (47 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with component-specific state()] (28 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue3 component with state()] (21 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveMultiComponentFileDependencyTest()] (33 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:vue component with state()] (29 ms)</li><li>io.javalin.javalinvue.TestJavalinVueResolution.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueResolution]/[method:resolveVue3DependencyTest()] (37 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()] (45 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()] (47 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()] (281 ms)</li><li>io.javalin.TestMocking.[engine:junit-jupiter]/[class:io.javalin.TestMocking]/[nested-class:Mockk]/[method:gh-1953 should mock body()] (608 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works()] (38 ms)</li><li>io.javalin.TestJavalinJackson.[engine:junit-jupiter]/[class:io.javalin.TestJavalinJackson]/[method:toJsonStream treats Strings as already being json()] (21 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper treats strings as already being json()] (14 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper throws error()] (17 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonStream()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonStream()] (19 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom fromJsonString()] (14 ms)</li><li>io.javalin.TestEncoding.[engine:junit-jupiter]/[class:io.javalin.TestEncoding]/[method:default charsets work()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can configure custom toJsonString()] (20 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()] (15 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()] (26 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:user can use Moshi as mapper()] (48 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Task.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package io.javalin.http.servlet</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.javalin.http.Context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>enum class SubmitOrder {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    FIRST,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAST</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>fun interface TaskInitializer&#60;CTX : Context&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun createTasks(submitTask: (SubmitOrder, Task) -&#62; Unit, servlet: JavalinServlet, ctx: CTX, requestUri: String)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>data class Task(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_15'>2</a>
+<span>
+
+1. getSkipIfExceptionOccurred : replaced boolean return with false for io/javalin/http/servlet/Task::getSkipIfExceptionOccurred &rarr; KILLED<br/>
+
+2. getSkipIfExceptionOccurred : replaced boolean return with true for io/javalin/http/servlet/Task::getSkipIfExceptionOccurred &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    val skipIfExceptionOccurred: Boolean = true, // tasks in this stage can be aborted by throwing an exception</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    val handler: TaskHandler&#60;Unit&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>fun interface TaskHandler&#60;R&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun handle(): R</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@284666cf_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@284666cf_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@284666cf_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSkipIfExceptionOccurred<br/><b>Killed by : </b>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in before-handler works()]</span></span> replaced boolean return with false for io/javalin/http/servlet/Task::getSkipIfExceptionOccurred &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getSkipIfExceptionOccurred<br/><b>Killed by : </b>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty timeout exceptions are caught and handled as errors()]</span></span> replaced boolean return with true for io/javalin/http/servlet/Task::getSkipIfExceptionOccurred &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>io.javalin.TestConfigureServletContextHandler.[engine:junit-jupiter]/[class:io.javalin.TestConfigureServletContextHandler]/[method:adding an event listener to the ServletContextHandler works()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty timeout exceptions are caught and handled as errors()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:jetty eof exceptions are caught and handled as errors()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:errors are handled by javaLangErrorHandler()] (16 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper throws error()] (17 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:type information of exception is not lost()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:can override HttpResponseExceptions()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:most specific exception handler handles exception()] (15 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:mapped exceptions are handled()] (16 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:exception in future supplier is handled()] (16 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom message works()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for custom code 555()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom int response has default type()] (13 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler()] (22 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:after-handlers execute after HttpResponseExceptions()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:unmapped exceptions are caught by default handler()] (16 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper runs after exception-mapper()] (18 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping strict non-json request to class()] (15 ms)</li><li>io.javalin.TestBodyReading.[engine:junit-jupiter]/[class:io.javalin.TestBodyReading]/[method:reading too large request body does not work()] (18 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:details are displayed as a map in json()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in before-handler works()] (14 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as json if client wants json()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain quotes()] (16 ms)</li><li>io.javalin.TestAppData.[engine:junit-jupiter]/[class:io.javalin.TestAppData]/[method:Context#appData() throws if data does not exist()] (19 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 500()] (16 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:throwing HttpResponseExceptions in endpoint-handler works()] (21 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:response is formatted as text if client wants html or text()] (19 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in before-handler works()] (27 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException subclass handler is used()] (14 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:catch-all Exception mapper doesn't override 404()] (13 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:can read payloads larger than max size by using inputstream()] (17 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:custom response has default type()] (18 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent folder fails()] (13 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:HttpResponseException handler is used for subclasses()] (16 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exception title can contain newlines()] (20 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default values work()] (23 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for POST if only before-handler present()] (17 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:user can configure max request size()] (18 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:urls are case sensitive()] (13 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:can handle endpoint not found differently than regular 404()] (12 ms)</li><li>io.javalin.TestPlugins.[engine:junit-jupiter]/[class:io.javalin.TestPlugins]/[method:Context-extending plugins throw if they are not registered()] (24 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should support custom ssl port()] (18 ms)</li><li>io.javalin.TestResponse.[engine:junit-jupiter]/[class:io.javalin.TestResponse]/[method:redirect in exception-mapper works()] (27 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:app returns 404 for GET if only before-handler present()] (16 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - exception()] (24 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom treatment for ValidationException exception response works()] (16 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before-handler can set header()] (15 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getOrThrow works()] (15 ms)</li><li>io.javalin.TestRendering.[engine:junit-jupiter]/[class:io.javalin.TestRendering]/[method:FileRenderer - default renderer throws - logs()] (25 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping invalid json to class()] (15 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper works for 404()] (17 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default content type affects http response errors()] (24 ms)</li><li>io.javalin.TestErrorMapper.[engine:junit-jupiter]/[class:io.javalin.TestErrorMapper]/[method:error-mapper can throw exceptions()] (29 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Lifecycle]/[method:can use future in exception mapper()] (28 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:all unmapped verbs return 404()] (18 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:get_or_throw_works_from_java()] (21 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for HTML works()] (16 ms)</li><li>io.javalin.TestExceptionMapper.[engine:junit-jupiter]/[class:io.javalin.TestExceptionMapper]/[method:exceptions can have a lot of superclasses()] (36 ms)</li><li>io.javalin.TestSslRedirectPlugin.[engine:junit-jupiter]/[class:io.javalin.TestSslRedirectPlugin]/[method:ssl redirect plugin should redirect all http requests()] (22 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:after is after before()] (17 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:allowNullable throws if called after check()] (18 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have custom jetty Handler chain()] (36 ms)</li><li>io.javalin.TestMethodNotAllowed.[engine:junit-jupiter]/[class:io.javalin.TestMethodNotAllowed]/[method:405 response for JSON works()] (15 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:throws MissingConverterException if converter is missing()] (22 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:empty mapper logs proper error messages()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched can skip remaining handlers()] (17 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:WebJars not available if not enabled()] (23 ms)</li><li>io.javalin.TestHttpResponseExceptions.[engine:junit-jupiter]/[class:io.javalin.TestHttpResponseExceptions]/[method:default exceptions work well with custom content-typed errors()] (21 ms)</li><li>io.javalin.TestFuture.[engine:junit-jupiter]/[class:io.javalin.TestFuture]/[nested-class:Exceptions]/[method:error is handled as unexpected throwable()] (20 ms)</li><li>io.javalin.TestCustomJetty.[engine:junit-jupiter]/[class:io.javalin.TestCustomJetty]/[method:embedded server can have a wrapped handler collection()] (39 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can access underlying exception through ValidationError in exception handler()] (19 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:case sensitive urls work()] (22 ms)</li><li>io.javalin.javalinvue.TestJavalinVue.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVue]/[method:non-existent component fails()] (23 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:uploadedFileMap throws if body has already been consumed()] (28 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:endpointHandlerPath doesn't crash for 404s()] (25 ms)</li><li>io.javalin.TestMultipleSlashes.[engine:junit-jupiter]/[class:io.javalin.TestMultipleSlashes]/[method:multiple slashes are not accepted when not enabled()] (25 ms)</li><li>io.javalin.TestFilters.[engine:junit-jupiter]/[class:io.javalin.TestFilters]/[method:before- and after-handlers can set a bunch of headers()] (22 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:wildcard last works()] (29 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:queryParam gives correct error message()] (21 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:validation_on_context_works_from_java()] (22 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:before-handler runs before static resources()] (27 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can use bodyValidator check with ValidationError()] (17 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:query params are kept after redirect()] (19 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:pathParam throws for invalid param()] (33 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter returns null()] (21 ms)</li><li>io.javalin.TestMaxRequestSize.[engine:junit-jupiter]/[class:io.javalin.TestMaxRequestSize]/[method:max request size is set by default()] (37 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:default mapper throws when mapping unmappable object to json()] (22 ms)</li><li>io.javalin.TestTrailingSlashes.[engine:junit-jupiter]/[class:io.javalin.TestTrailingSlashes]/[method:automatic slash prefixing works()] (19 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:unregistered converter fails()] (35 ms)</li><li>io.javalin.TestValidation_Java.[engine:junit-jupiter]/[class:io.javalin.TestValidation_Java]/[method:default_values_work_from_java()] (23 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for instance()] (30 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:angle-bracket path-params can be combined with wildcards()] (17 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched fires for head request on get handler()] (22 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:matchedPath returns the path used to match the request()] (28 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:error args work()] (23 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:directory root returns simple 404 if there is no welcome file()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - totally different path leads to 404 without global headers()] (18 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected()] (34 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:ConvenienceFeatures]/[method:maxAge is present in preflight()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:multiple checks and named fields work when validating class()] (23 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:can convert enum()] (25 ms)</li><li>io.javalin.TestRouting.[engine:junit-jupiter]/[class:io.javalin.TestRouting]/[method:path-params can be combined with wildcards()] (21 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:check works()] (26 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:beforeMatched and afterMatched work()] (28 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:no exceptions in logs when getting hosted path()] (31 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:default query param values work()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:urlPathPrefix filters requests to a specific subfolder()] (26 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:only handle resources matching the filter()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:normal Javalin serves files but serves directory if it is a directory()] (26 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:optional query param value with check works()] (22 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching angle brackets in beforeMatched but no matching http handler leads to 404()] (24 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:HappyPath]/[method:works for 404s()] (19 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:getAs clazz works()] (29 ms)</li><li>io.javalin.staticfiles.TestStaticDirectorySlash.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticDirectorySlash]/[method:precompressing Javalin serves files but serves directory if it is a directory()] (23 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:pathParam gives correct error message()] (38 ms)</li><li>io.javalin.staticfiles.TestStaticFilesPrecompressor.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesPrecompressor]/[method:content-length unavailable for large files if precompression not enabled()] (26 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:formParams returns list of converted and validated supplied params()] (18 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:path - matching sub curly in beforeMatched but no matching http handler leads to 404()] (28 ms)</li><li>io.javalin.TestBeforeAfterMatched.[engine:junit-jupiter]/[class:io.javalin.TestBeforeAfterMatched]/[method:alias problem does not occur()] (29 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:notNullOrEmpty works for Validator()] (47 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:localization is easy()] (37 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:bodyValidator works()] (36 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:path params and query params work as expected()] (30 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:custom converter works()] (38 ms)</li><li>io.javalin.TestRedirectToLowercasePathPlugin.[engine:junit-jupiter]/[class:io.javalin.TestRedirectToLowercasePathPlugin]/[method:only wrong cased requests are redirected complex segments edition()] (29 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limiting kicks in if number of requests exceeds rate limit()] (62 ms)</li><li>io.javalin.TestValidation.[engine:junit-jupiter]/[class:io.javalin.TestValidation]/[method:formParam gives correct error message()] (45 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler doesn't affect JSON requests - classpath()] (43 ms)</li><li>io.javalin.staticfiles.TestSinglePageMode.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestSinglePageMode]/[method:SinglePageHandler works for just subpaths - classpath()] (44 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:both path and HTTP method must match for rate limiting to kick in()] (57 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for external location()] (28 ms)</li><li>io.javalin.TestCors.[engine:junit-jupiter]/[class:io.javalin.TestCors]/[nested-class:EdgeCases]/[method:cors plugin works with prefer405over404()] (24 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:basic auth filter plugin works()] (44 ms)</li><li>io.javalin.TestRequest.[engine:junit-jupiter]/[class:io.javalin.TestRequest]/[method:queryParams returns list of converted and validated supplied params()] (47 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for passing static config()] (37 ms)</li><li>io.javalin.TestMultipartForms.[engine:junit-jupiter]/[class:io.javalin.TestMultipartForms]/[method:custom multipart properties applied correctly()] (90 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for classPath location()] (38 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:one app can handle multiple static file locations()] (62 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder crud()] (60 ms)</li><li>io.javalin.staticfiles.TestStaticFiles.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFiles]/[method:access files with encoded names with encoded url()] (78 ms)</li><li>io.javalin.staticfiles.TestStaticFileAccess.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFileAccess]/[method:Authentication works for multiple location()] (54 ms)</li><li>io.javalin.TestRateLimitUtil.[engine:junit-jupiter]/[class:io.javalin.TestRateLimitUtil]/[method:rate limit on dynamic path-params limits per endpoint, not per URL()] (96 ms)</li><li>io.javalin.staticfiles.TestStaticFilesEdgeCases.[engine:junit-jupiter]/[class:io.javalin.staticfiles.TestStaticFilesEdgeCases]/[method:static files works on http2 with ssl and ALPN()] (293 ms)</li><li>io.javalin.TestJson.[engine:junit-jupiter]/[class:io.javalin.TestJson]/[method:mapping invalid json to class can be handle by validator()] (281 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:path params are not html-encoded on JavalinVue()] (1022 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData cache can be enabled()] (1096 ms)</li><li>io.javalin.TestAccessManager.[engine:junit-jupiter]/[class:io.javalin.TestAccessManager]/[method:AccessManager can restrict access for ApiBuilder()] (1096 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:LoadableData instance can refresh instances with same URL()] (1237 ms)</li><li>io.javalin.javalinvue.TestJavalinVueBrowser.[engine:junit-jupiter]/[class:io.javalin.javalinvue.TestJavalinVueBrowser]/[method:utf8 characters in state and parameters()] (1643 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.2
+
+</body>
+</html>
